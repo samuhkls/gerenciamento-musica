@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.css">
-    <title>Login</title>
+	<title>Cadastro e log-in</title>
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
 
-    <div class="card">
-        
-    </div>
+			<div class="signup">
+				<form>
+					<label for="chk" aria-hidden="true">Cadastro</label>
 
+					<input type="text" name="txt" placeholder="Usuário" required="">
+					<input type="email" name="email" placeholder="Seu E-mail" required="">
+					<input type="password" name="pswd" placeholder="Sua senha" required="">
+					<button>Cadastrar</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Log-in</label>
+					<input type="email" name="email" placeholder="Seu E-mail" required="">
+					<input type="password" name="pswd" placeholder="Sua senha" required="">
+					<button>Login</button>
+				</form>
+			</div>
+	</div>
 </body>
 </html>
