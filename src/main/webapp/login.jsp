@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Cadastro e log-in</title>
-	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +13,7 @@
 				<form>
 					<label for="chk" aria-hidden="true">Cadastro</label>
 
-					<input type="text" name="txt" placeholder="Usuário" required="">
+					<input type="text" name="txt" placeholder="Usuario" required="">
 					<input type="email" name="email" placeholder="Seu E-mail" required="">
 					<input type="password" name="pswd" placeholder="Sua senha" required="">
 					<button>Cadastrar</button>

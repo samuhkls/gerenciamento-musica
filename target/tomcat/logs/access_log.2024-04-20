@@ -8,3 +8,5 @@
 127.0.0.1 - - [20/Apr/2024:21:18:58 -0300] "GET /assets/home.png HTTP/1.1" 200 322 http-bio-8080-exec-7 67
 127.0.0.1 - - [20/Apr/2024:21:18:58 -0300] "GET /assets/diagrama.png HTTP/1.1" 200 351 http-bio-8080-exec-6 71
 127.0.0.1 - - [20/Apr/2024:21:19:04 -0300] "GET / HTTP/1.1" 200 1485 http-bio-8080-exec-8 3
+127.0.0.1 - - [20/Apr/2024:22:31:37 -0300] "GET / HTTP/1.1" 200 1485 http-bio-8080-exec-1 1806
+127.0.0.1 - - [20/Apr/2024:22:31:37 -0300] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-2 2
