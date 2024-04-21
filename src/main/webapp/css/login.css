@@ -1,0 +1,15 @@
+*{  
+    margin: 0px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.card{
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 10px 1px;
+    justify-content: center;
+    align-items: center;
+    border: 1px  solid;
+    height: 50%;
+    width: 50%;
+}

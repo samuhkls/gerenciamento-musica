@@ -1,0 +1,10 @@
+127.0.0.1 - - [20/Apr/2024:19:32:15 -0300] "GET / HTTP/1.1" 200 57 http-bio-8080-exec-1 1127
+127.0.0.1 - - [20/Apr/2024:19:32:15 -0300] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-2 1
+127.0.0.1 - - [20/Apr/2024:21:18:57 -0300] "GET / HTTP/1.1" 200 1485 http-bio-8080-exec-1 1286
+127.0.0.1 - - [20/Apr/2024:21:18:57 -0300] "GET /css/home.css HTTP/1.1" 200 1189 http-bio-8080-exec-2 28
+127.0.0.1 - - [20/Apr/2024:21:18:58 -0300] "GET /assets/profile.png HTTP/1.1" 200 338 http-bio-8080-exec-3 25
+127.0.0.1 - - [20/Apr/2024:21:18:58 -0300] "GET /assets/comunidade.png HTTP/1.1" 200 388 http-bio-8080-exec-5 36
+127.0.0.1 - - [20/Apr/2024:21:18:58 -0300] "GET /assets/trending.png HTTP/1.1" 200 365 http-bio-8080-exec-4 44
+127.0.0.1 - - [20/Apr/2024:21:18:58 -0300] "GET /assets/home.png HTTP/1.1" 200 322 http-bio-8080-exec-7 67
+127.0.0.1 - - [20/Apr/2024:21:18:58 -0300] "GET /assets/diagrama.png HTTP/1.1" 200 351 http-bio-8080-exec-6 71
+127.0.0.1 - - [20/Apr/2024:21:19:04 -0300] "GET / HTTP/1.1" 200 1485 http-bio-8080-exec-8 3
