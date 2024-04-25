@@ -9,6 +9,9 @@ public class RequestTrack {
     String USER_AGENT = "ListenerApp";
 
     String resposta;
+    String trackNome;
+    String trackArtista;
+    int trackDuracao;
 
     @Override
     public String toString() {
@@ -33,15 +36,28 @@ public class RequestTrack {
 
             // o objeto track fica dentro de "object" entao primeiro precisamos acessar o object
             JSONObject trackObject = jsonResposta.getJSONObject("object").getJSONObject("track");
-            String trackNome = trackObject.getString("name");  // a partir de object, conseguimos acessar o nome da track
-            String artistaNome = trackObject.getJSONObject("artist").getString("name"); // o nome do artista fica dentro de "artist"
+            trackNome = trackObject.getString("name");  // a partir de object, conseguimos acessar o nome da track
+            trackArtista = trackObject.getJSONObject("artist").getString("name"); // o nome do artista fica dentro de "artist"
+            trackDuracao = trackObject.getInt("duration");
 
-            System.out.println("Track Name: " + trackNome);
-            System.out.println("Artist Name: " + artistaNome);
+            System.out.println("nome da musica: " + trackNome);
+            System.out.println("nome do artista: " + trackArtista);
+            System.out.println("duracao em ms: " + trackDuracao);
         } catch (UnirestException e) {
             e.printStackTrace();
         }
 
     }
 
+    public String getTrackNome() {
+        return trackNome;
+    }
+
+    public String getTrackArtista() {
+        return trackArtista;
+    }
+
+    public int getTrackDuracao() {
+        return trackDuracao;
+    }
 }
