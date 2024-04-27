@@ -1,7 +1,7 @@
 public class Musica {
     private String nome;
     private String artista;
-    private int duracao;
+    private double duracao;
 
     public Musica(String nome, String artista, int minutos, int segundos){
         this.nome = nome;
@@ -35,25 +35,23 @@ public class Musica {
         this.artista = artista;
     }
 
-    public int getDuracao() {
+    public double getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(int minutos, int segundos) {
+    public void setDuracao(double minutos, double segundos) {
         this.duracao = (minutos * 60) + segundos;
     }
-    public void setDuracao(int milisegundos){
-        this.duracao = milisegundos/1000;
+    public void setDuracao(double milisegundos){
+        this.duracao = milisegundos/60000;
     }
 
     @Override
     public String toString() {
-        int minutos = duracao / 60;
-        int segundos = duracao % 60;
         return "Musica{" +
                 "nome='" + nome + '\'' +
                 ", artista='" + artista + '\'' +
-                ", duracao=" + minutos +":"+segundos+
+                ", duracao=" + duracao+
                 '}';
     }
 }

@@ -23,17 +23,19 @@
                 <img src="assets/trending.png" alt=""> <a href="">Em alta</a>
             </div>
             <div class="nav-search-box">
-                <input type="text" placeholder="Pesquise sua música: ">
+                <form action="/home" method="POST">
+                    <input type="text" name="musica" placeholder="Pesquise sua música: ">
+                    <input type="submit" value="Submit">
+                </form>
                 <a href="login.html"><img src="assets/profile.png" alt=""></a>
             </div>
-
         </div>
     </header>
     <hr>
 
     <div class="header-container">
         <div class="inside-container">
-            
+
             <div class="title-container">
                 <h1>Iorem Ipsum</h1>
             </div>
@@ -41,7 +43,12 @@
             <div class="subtitle-container">
                 <h3>Ipsum</h3>
             </div>
+            </div>
         </div>
+    </div>
+
+    <div>
+        <p>${musica.artista}</p>
     </div>
 
 </body>

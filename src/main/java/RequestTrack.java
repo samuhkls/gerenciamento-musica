@@ -11,11 +11,31 @@ public class RequestTrack {
     String resposta;
     String trackNome;
     String trackArtista;
-    int trackDuracao;
+
+    double trackDuracao;
+
+    double minutos;
+    double segundos;
 
     @Override
     public String toString() {
         return "RequestTrack{} " + resposta ;
+    }
+
+    public double getMinutos() {
+        return minutos;
+    }
+
+    public void setMinutos(int minutos) {
+        this.minutos = minutos;
+    }
+
+    public double getSegundos() {
+        return segundos;
+    }
+
+    public void setSegundos(int segundos) {
+        this.segundos = segundos;
     }
 
     public void pegarInfo(){
@@ -25,8 +45,8 @@ public class RequestTrack {
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
                     .queryString("method", "track.getInfo")
-                    .queryString("track", "Sad Girl")
-                    .queryString("artist", "Lana Del Rey")
+                    .queryString("track", "Me and Your Mama")
+                    .queryString("artist", "Childish Gambino")
                     .queryString("format", "json")
                     .asJson();
 
@@ -57,7 +77,7 @@ public class RequestTrack {
         return trackArtista;
     }
 
-    public int getTrackDuracao() {
+    public double getTrackDuracao() {
         return trackDuracao;
     }
 }
