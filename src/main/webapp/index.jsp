@@ -19,14 +19,14 @@
             </div>
 
             <div class="nav-icons">
-                <img src="assets/home.png" alt=""> <a href="">Início</a>
+                <img src="assets/home.png" alt=""> <a href="">Inicio</a>
                 <img src="assets/diagrama.png" alt=""> <a href="">Explorar</a>
                 <img src="assets/comunidade.png" alt=""> <a href="">Comunidade</a>
                 <img src="assets/trending.png" alt=""> <a href="">Em alta</a>
             </div>
             <div class="nav-search-box">
                 <form action="/create-musica" method="POST">
-                    <input type="text" name="musica" placeholder="Pesquise sua música: ">
+                    <input type="text" name="musica" placeholder="Pesquise sua musica: ">
                     <input type="submit" value="Submit">
                 </form>
             </div>
@@ -39,24 +39,28 @@
         <div class="inside-container">
             
             <div class="title-container">
-                <h1>Iorem Ipsum</h1>
+                <h1>Explore suas musicas favoritas</h1>
             </div>
 
             <div class="subtitle-container">
-                <h3>Ipsum</h3>
+                <p>Reunimos todos os seus servicos musicais preferidos e nos juntamos a eles, ouvindo, assistindo e compartilhando para conectar o seu mundo musical. Explore.</p>
             </div>
         </div>
     </div>
-    <div>
-        <c:forEach var="musica" items="${musicas}">
-        <table>
-            <tr>
-                <td></td>
-                <td>${musica.nome}</td>
-            </tr>
-        </table>
-        </c:forEach>
+
+    <div class="page-content">=
+        <div>
+            <c:forEach var="musica" items="${musicas}">
+            <table>
+                <tr>
+                    <td></td>
+                    <td>${musica.nome}</td>
+                </tr>
+            </table>
+            </c:forEach>
+        </div>
     </div>
+
 </body>
 
 </html>

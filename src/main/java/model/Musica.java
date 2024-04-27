@@ -24,6 +24,12 @@ public class Musica {
 
     }
 
+    public Musica(String trackNome, String artistaNome) {
+    }
+
+    public Musica(String trackNome, java.lang.String artistaNome, java.lang.Double duracao) {
+    }
+
     public String getNome() {
         return nome;
     }

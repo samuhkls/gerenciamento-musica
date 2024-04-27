@@ -1,3 +1,4 @@
+import dao.musicaDAO;
 import model.Musica;
 import service.SearchTrack;
 
@@ -21,6 +22,9 @@ public class Main {
         System.out.println("duracao da musica: " + musica.getDuracao());
         System.out.println("----");
         System.out.println(musica);
+
+        musicaDAO dao = new musicaDAO();
+        dao.createMusica(musica);
     }
 
 

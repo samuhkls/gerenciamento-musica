@@ -1,4 +1,7 @@
+Main.class
+setterMusica.class
 servlet\CreateMusicaServlet.class
+RequestTrack.class
 service\SearchTrack.class
 model\Musica.class
 servlet\ListMusicaServlet.class

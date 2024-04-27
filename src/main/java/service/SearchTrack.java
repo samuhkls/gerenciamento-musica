@@ -4,12 +4,13 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import dao.musicaDAO;
+import model.Musica;
 import org.json.*;
 
 public class SearchTrack {
     String API_KEY = "43fce9a2d0129c54d3c32cc47389254b";
     String USER_AGENT = "ListenerApp";
-
     String resposta;
 
     @Override
@@ -17,9 +18,8 @@ public class SearchTrack {
         return "RequestTrack{} " + resposta ;
     }
 
-    public void pesquisar(){
+    public Musica pesquisar(){
         try{
-
             HttpResponse<JsonNode> resposta = Unirest.get("https://ws.audioscrobbler.com/2.0/")
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
@@ -43,9 +43,16 @@ public class SearchTrack {
             String artistaNome = track.getString("artist"); // o nome do artista tambem é um atributo do objeto musica
             System.out.println("Nome do artista: " + artistaNome);
 
+            Musica musica = new Musica(trackNome, artistaNome);
+            musicaDAO dao = new musicaDAO();
+            dao.createMusica(musica);
+
+            return musica;
+
         }catch (UnirestException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 

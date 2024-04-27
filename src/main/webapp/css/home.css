@@ -10,7 +10,7 @@
 }
 
 .nav-logo h1{
-    color: rgb(50, 194, 50);
+    color: #9D4CB1;
 }
 
 .nav-logo a{
@@ -66,12 +66,32 @@ hr{
 }
 
 .header-container{
+    display: flex;
+    justify-content: center;
     color: white;
     width: 100%;
-    height: 100%;
-    background-color: #556B2F;
+    height: 10vh;
+    background-color: #602F6D;
 }
 
 .title-container h1{
     margin: 0px;
+    font-size: 27px;
+}
+
+.subtitle-container p{
+    padding-top: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.inside-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-content{
+    margin-left: 18%;
+    margin-right: 18%;
 }
