@@ -1,3 +1,5 @@
+import model.Musica;
+
 public class setterMusica {
 
     Musica musica = new Musica();

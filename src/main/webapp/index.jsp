@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <head>
     <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
@@ -23,8 +25,10 @@
                 <img src="assets/trending.png" alt=""> <a href="">Em alta</a>
             </div>
             <div class="nav-search-box">
-                <input type="text" placeholder="Pesquise sua música: ">
-                <a href="login.html"><img src="assets/profile.png" alt=""></a>
+                <form action="/create-musica" method="POST">
+                    <input type="text" name="musica" placeholder="Pesquise sua música: ">
+                    <input type="submit" value="Submit">
+                </form>
             </div>
 
         </div>
@@ -43,7 +47,16 @@
             </div>
         </div>
     </div>
-
+    <div>
+        <c:forEach var="musica" items="${musicas}">
+        <table>
+            <tr>
+                <td></td>
+                <td>${musica.nome}</td>
+            </tr>
+        </table>
+        </c:forEach>
+    </div>
 </body>
 
 </html>
