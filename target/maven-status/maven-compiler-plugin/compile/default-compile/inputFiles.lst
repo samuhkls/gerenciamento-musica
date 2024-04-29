@@ -1,8 +1,7 @@
-E:\Code\gerenciamento-musica\src\main\java\dao\musicaDAO.java
-E:\Code\gerenciamento-musica\src\main\java\model\Musica.java
-E:\Code\gerenciamento-musica\src\main\java\RequestTrack.java
-E:\Code\gerenciamento-musica\src\main\java\Main.java
-E:\Code\gerenciamento-musica\src\main\java\service\SearchTrack.java
-E:\Code\gerenciamento-musica\src\main\java\servlet\CreateMusicaServlet.java
-E:\Code\gerenciamento-musica\src\main\java\servlet\ListMusicaServlet.java
-E:\Code\gerenciamento-musica\src\main\java\setterMusica.java
+C:\Users\Samth\IdeaProjects\gerenciamento-musica\src\main\java\servlet\ListMusicaServlet.java
+C:\Users\Samth\IdeaProjects\gerenciamento-musica\src\main\java\dao\musicaDAO.java
+C:\Users\Samth\IdeaProjects\gerenciamento-musica\src\main\java\service\SearchTrack.java
+C:\Users\Samth\IdeaProjects\gerenciamento-musica\src\main\java\Main.java
+C:\Users\Samth\IdeaProjects\gerenciamento-musica\src\main\java\model\Musica.java
+C:\Users\Samth\IdeaProjects\gerenciamento-musica\src\main\java\RequestTrack.java
+C:\Users\Samth\IdeaProjects\gerenciamento-musica\src\main\java\servlet\CreateMusicaServlet.java
