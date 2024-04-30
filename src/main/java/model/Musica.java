@@ -27,7 +27,10 @@ public class Musica {
     public Musica(String trackNome, String artistaNome) {
     }
 
-    public Musica(String trackNome, java.lang.String artistaNome, java.lang.Double duracao) {
+    public Musica(String trackNome, String artistaNome, Double duracao) {
+        this.nome = trackNome;
+        this.artista = artistaNome;
+        this.duracao = duracao;
     }
 
     public String getNome() {

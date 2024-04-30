@@ -30,52 +30,47 @@
                     <input type="submit" value="Submit">
                 </form>
             </div>
-            <script>
-                document.querySelector('form').addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    var searchValue = document.querySelector('input[name="musica"]').value;
-                    document.querySelector('.title-container h1').textContent = 'Resultados similares a ' +'"'+ searchValue+ '"';
-                    document.querySelector('.artista-container p').textContent = 'Artistas similares a  ' +'"' + searchValue+ '"';
-                    document.querySelector('.musica-container p').textContent = 'Músicas com o título similar a  ' +'"' + searchValue+ '"';
-                });
-            </script>
+
         </div>
     </header>
     <hr>
-
-    <div class="header-container">
-        <div class="inside-container">
-
-            <div class="title-container">
-                <h1>Resultados similares a </h1>
-            </div>
-
-
-            <div class="subtitle-container">
-                <p>Aproveite a seleção de artistas e músicas</p>
-            </div>
-        </div>
-    </div>
-    <div class="Art-container">
-        <div class="under-container">
-
-            <div class="artista-container">
-                <P>Artistas com esse nome </h1>
-                    <h1>lorem ipsum</h1>
-            </div>
-            <div class="Musica-container">
-                <div class="undertwo-container">
-
-                    <div class="musica-container">
-
-                        <P>Musicas com esse nome </h1>
-                            <h1>lorem ipsum</h1>
+         <div class="header-container">
+                <div class="inside-container">
+                    <div class="title-container">
+                        <h1>Resultados similares a </h1>
                     </div>
-<h1> lorem ipsum</h1>
+                    <div class="subtitle-container">
+                        <p>Aproveite a seleção de artistas e músicas</p>
+                    </div>
+                </div>
+         </div>
+         <div class="art-container">
+            <div class="under-container">
+                <div class="artista-container">
+                    <h1>Artistas com esse nome</h1>
+                    <p>lorem ipsum</p>
+                </div>
+                <div class="musica-container">
+                    <h1>Músicas com esse nome</h1>
+                    <p>lorem ipsum</p>
+                 </div>
+            </div>
+         </div>
+     </hr>
+     <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Acoes</th>
+            </tr>
+            <c:forEach var="musica" items="${musicas}">
+                <tr>
+                    <td>${musica.nome}</td>
+                    <td>${musica.artista}</td>
+                </tr>
+            </c:forEach>
 
-
-
-    </div>
+     </table>
 
 </body>
 
