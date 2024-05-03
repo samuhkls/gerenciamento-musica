@@ -7,27 +7,27 @@
     <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title >Listener</title>
-    <link rel="stylesheet" href="css/home.css">
+    <title >Listener | Home</title>
+    <link rel="stylesheet" href="css/home.css?v=1.0">
 </head>
 
 <body>
     <header>
         <div class="navpane">
             <div class="nav-logo">
-                <a href="index.html"><h1 id="logo">Listener</h1></a>
+                <a href="index.jsp"><h1 id="logo">Listener</h1></a>
             </div>
 
             <div class="nav-icons">
-                <img src="assets/home.png" alt=""> <a href="">Inicio</a>
+                <img src="assets/home.png" alt=""> <a href="index.jsp">Inicio</a>
                 <img src="assets/diagrama.png" alt=""> <a href="">Explorar</a>
                 <img src="assets/comunidade.png" alt=""> <a href="">Comunidade</a>
                 <img src="assets/trending.png" alt=""> <a href="">Em alta</a>
             </div>
             <div class="nav-search-box">
                 <form action="/create-musica" method="POST">
-                    <input type="text" name="musica" placeholder="Pesquise sua musica: ">
-                    <input type="submit" value="Submit">
+                    <input type="text" name="musica" placeholder="Pesquise sua musica: " >
+                    <button type="submit" value="Submit">
                 </form>
             </div>
 
@@ -48,17 +48,44 @@
         </div>
     </div>
 
-    <div class="page-content">=
-        <div>
-            <c:forEach var="musica" items="${musicas}">
-            <table>
-                <tr>
-                    <td></td>
-                    <td>${musica.nome}</td>
-                </tr>
-            </table>
-            </c:forEach>
-        </div>
+    <div class="page-content">
+         <div class="trending-container">
+              <div class="top-musics">
+                <div class="title-musics-container">
+                    <h3>Musicas em Alta</h3>
+                    <h4>As musicas mais acessadas em todos os lugares do mundo.</h4>
+                </div>
+                <div class="top-musics-content">
+                    <p>Childish Gambino - Redbone</p>
+                </div>
+              </div>
+
+              <div class="top-artists">
+                  <div class="title-musics-container">
+                     <h3>Artistas em Alta</h3>
+                     <h4>Os Artistas mais acessados em todo o mundo.</h4>
+                  </div>
+              </div>
+         </div>
+
+         <div class="recommendations-container">
+              <div class="recommendations-musics">
+                    <div class="title-musics-container">
+                      <h3>Musicas Recomendadas</h3>
+                      <h4>Os As Musicas que mais se assemelham ao seus gostos.</h4>
+                    </div>
+               </div>
+
+               <div class="recommendations-artists">
+                     <div class="title-musics-container">
+                       <h3>Artistas Recomendados</h3>
+                       <h4>Os Artistas que mais se assemelham ao seu gostos.</h4>
+                     </div>
+               </div>
+         </div>
+         <footer class="footer-container">
+          <p>Desenvolvido usando as tecnologias Maven, JSP, H2, Java e LastFM API.</p>
+        </footer>
     </div>
 
 </body>
