@@ -2,6 +2,10 @@
 <html lang="en">
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
+<%@ page import="model.Musica" %>
+<%@ page import="java.util.List" %>
+
 
 <head>
     <meta charset="UTF-8">
@@ -70,7 +74,10 @@
                 </tr>
             </c:forEach>
 
+
      </table>
+
+
 
 </body>
 
