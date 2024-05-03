@@ -59,7 +59,7 @@ public class musicaDAO {
                 String artista = resultSet.getString("ARTISTA");
                 double duracao = resultSet.getDouble("DURACAO");
 
-                Musica musica = new Musica(musicaNome, artista, (int) duracao);
+                Musica musica = new Musica(musicaNome, artista, duracao);
                 musicas.add(musica);
 
             }

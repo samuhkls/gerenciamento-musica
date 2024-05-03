@@ -36,7 +36,7 @@ public class CreateMusicaServlet extends HttpServlet{
 
             new musicaDAO().createMusica(musica);
 
-            response.sendRedirect("/find-all-musicas");
+            response.sendRedirect("/lista-musicas");
 
         }
 

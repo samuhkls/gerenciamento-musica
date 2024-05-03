@@ -25,8 +25,8 @@ public class RequestTrack {
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
                     .queryString("method", "track.getInfo")
-                    .queryString("track", "Sad Girl")
-                    .queryString("artist", "Lana Del Rey")
+                    .queryString("track", "element")
+                    .queryString("artist", "kendrick lamar")
                     .queryString("format", "json")
                     .asJson();
 
