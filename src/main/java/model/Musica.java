@@ -24,7 +24,9 @@ public class Musica {
 
     }
 
-    public Musica(String trackNome, String artistaNome) {
+    public Musica(String nome, String artista) {
+        this.nome = nome;
+        this.artista = artista;
     }
 
     public Musica(String trackNome, String artistaNome, Double duracao) {
