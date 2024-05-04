@@ -56,7 +56,12 @@
                     <h4>As musicas mais acessadas em todos os lugares do mundo.</h4>
                 </div>
                 <div class="top-musics-content">
-                    <p>Childish Gambino - Redbone</p>
+                    <c:forEach var="musica" items="${musicas}">
+                        <div class="musica-item-container">
+                            <span class="item-nome">${musica.nome}</span>
+                            <span class="item-artista">${musica.artista}</span>
+                        </div>
+                    </c:forEach>
                 </div>
               </div>
 

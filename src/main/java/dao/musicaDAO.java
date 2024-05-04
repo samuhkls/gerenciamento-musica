@@ -2,10 +2,7 @@ package dao;
 
 import model.Musica;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,16 +11,38 @@ public class musicaDAO {
 
     public void createMusica(Musica musica){
         String SQL = "INSERT INTO MUSICA (NOME, ARTISTA, DURACAO) VALUES (?, ?, ?)";
+        String connect = "CREATE TABLE IF NOT EXISTS MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)";
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            System.out.println("success in database connection");
+
+            PreparedStatement connectStatement = connection.prepareStatement(connect);
+            connectStatement.executeUpdate();
+
+            connection.close();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
             System.out.println("success in database connection");
 
+            //CREATE TABLE MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)
+
+
+            PreparedStatement connectStatement = connection.prepareStatement(connect);
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            connectStatement.executeUpdate();
 
             preparedStatement.setString(1, musica.getNome());
             preparedStatement.setString(2, musica.getArtista());
             preparedStatement.setDouble(3, musica.getDuracao());
+
             preparedStatement.executeUpdate();
 
             System.out.println(musica.getArtista());

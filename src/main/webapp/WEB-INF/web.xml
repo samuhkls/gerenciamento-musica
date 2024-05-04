@@ -11,19 +11,9 @@
     <servlet-class>login.jsp</servlet-class>
   </servlet>
 
-  <servlet>
-    <servlet-name>HomeServlet</servlet-name>
-    <servlet-class></servlet-class>
-  </servlet>
-
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>HomeServlet</servlet-name>
-    <url-pattern>/home</url-pattern>
   </servlet-mapping>
 
   <!-- Configuração para inicializar o servidor H2 -->
