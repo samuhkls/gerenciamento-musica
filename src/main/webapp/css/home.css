@@ -258,3 +258,9 @@ hr{
 .musica-container{
     padding-bottom: 20px;
 }
+
+.item-image{
+    max-height: 40px;
+    max-width: 40px;
+    padding-right: 10px;
+}

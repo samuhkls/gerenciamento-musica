@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener | Home</title>
-    <link rel="stylesheet" href="css/home.css?v=2.0">
+    <link rel="stylesheet" href="css/home.css?v=3.0">
 </head>
 
 <body>
@@ -58,6 +58,7 @@
                 <div class="top-musics-content">
                     <c:forEach var="musica" items="${musicas}">
                         <div class="musica-item-container">
+                            <img src="${musica.imageURL}" class="item-image"></img>
                             <span class="item-nome">${musica.nome}</span>
                             <span class="item-artista">${musica.artista}</span>
                         </div>

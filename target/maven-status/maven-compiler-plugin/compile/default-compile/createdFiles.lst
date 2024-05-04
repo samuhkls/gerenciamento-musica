@@ -1,7 +1,5 @@
-Main.class
 test\TrendingTest.class
 servlet\CreateMusicaServlet.class
-RequestTrack.class
 service\SearchTrack.class
 servlet\HomeServlet.class
 service\TrendingGetter.class
