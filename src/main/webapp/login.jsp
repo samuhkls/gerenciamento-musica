@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="login">
-				<form>
+				<form action="/login" method = "post">
 					<label for="chk" aria-hidden="true">Log-in</label>
 					<input type="email" name="email" placeholder="Seu E-mail" required="">
 					<input type="password" name="pswd" placeholder="Sua senha" required="">
