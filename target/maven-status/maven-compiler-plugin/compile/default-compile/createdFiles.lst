@@ -10,5 +10,6 @@ servlet\LoginServlet.class
 servlet\CreateMusicaServlet.class
 servlet\HomeServlet.class
 dao\UserDAO.class
+servlet\RegisterServlet.class
 servlet\ListMusicaServlet.class
 model\User.class
