@@ -31,7 +31,7 @@ public class TrendingGetter {
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
                     .queryString("method", "chart.getTopTracks")
-                    .queryString("limit", "20")
+                    .queryString("limit", "19")
                     .queryString("format", "json")
                     .asJson();
 
