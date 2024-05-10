@@ -10,8 +10,10 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form action="/login" method="post">
+				<form action="/register" method="post">
 					<label for="chk" aria-hidden="true">Listener</label>
+
+                    <span>${requestScope.message}</span>
 
 					<input type="text" name="user-register" placeholder="Usuario" required="">
 					<input type="email" name="email-register" placeholder="Seu E-mail" required="">

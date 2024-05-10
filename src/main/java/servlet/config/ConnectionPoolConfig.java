@@ -12,6 +12,8 @@ public class ConnectionPoolConfig {
     public static BasicDataSource getDataSource(){
 
         if(dataSource == null){
+            dataSource = new BasicDataSource();
+
             dataSource.setUrl("jdbc:h2:~/test");
             dataSource.setUsername("sa");
             dataSource.setPassword("sa");

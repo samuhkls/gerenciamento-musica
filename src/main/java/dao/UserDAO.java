@@ -36,6 +36,11 @@ public class UserDAO {
 
             connectStatement.executeUpdate();
 
+            System.out.println(user.getUsername());
+            System.out.println(user.getEmail());
+            System.out.println(user.getPassword());
+
+
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getPassword());
