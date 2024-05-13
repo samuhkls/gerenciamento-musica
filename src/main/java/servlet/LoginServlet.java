@@ -19,16 +19,16 @@ public class LoginServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
+        String username = req.getParameter("user-login");
+        String email = req.getParameter("email-login");
+        String password = req.getParameter("password-login");
 
         User user = new User(username, email, password);
         boolean isValidUser = new UserDAO().verifyCredentials(user);
 
         if (isValidUser) {
             req.getSession().setAttribute("loggedUser", email);
-            resp.sendRedirect("find-all-musicas");
+            resp.sendRedirect("home");
         } else {
             req.setAttribute("message", "Invalid credentials!");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

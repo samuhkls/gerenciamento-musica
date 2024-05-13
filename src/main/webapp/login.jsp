@@ -28,6 +28,7 @@
 				    <span>${requestScope.message}</span>
 
 					<label for="chk" aria-hidden="true">Log-in</label>
+					<input type="text" name="user-login" placeholder="Usuario" required="">
 					<input type="email" name="email-login" placeholder="Seu E-mail" required="">
 					<input type="password" name="password-login" placeholder="Sua senha" required="">
 					<button type="submit">Login</button>
