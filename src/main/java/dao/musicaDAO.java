@@ -1,6 +1,7 @@
 package dao;
 
 import model.Musica;
+import servlet.config.ConnectionPoolConfig;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,8 +15,8 @@ public class musicaDAO {
         String connect = "CREATE TABLE IF NOT EXISTS MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)";
 
         try{
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
+
 
             PreparedStatement connectStatement = connection.prepareStatement(connect);
             connectStatement.executeUpdate();
@@ -28,8 +29,8 @@ public class musicaDAO {
         }
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
+
 
             //CREATE TABLE MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)
 
@@ -65,8 +66,7 @@ public class musicaDAO {
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            System.out.println("success in database connection");
+            Connection connection = ConnectionPoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             ResultSet resultSet = preparedStatement.executeQuery();

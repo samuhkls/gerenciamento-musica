@@ -907,3 +907,14 @@
 0:0:0:0:0:0:0:1 - - [03/May/2024:17:39:06 -0300] "POST /create-musica HTTP/1.1" 302 - http-bio-8080-exec-2 373
 0:0:0:0:0:0:0:1 - - [03/May/2024:17:39:06 -0300] "GET /lista-musicas HTTP/1.1" 200 5729 http-bio-8080-exec-2 2
 0:0:0:0:0:0:0:1 - - [03/May/2024:17:39:17 -0300] "GET /index.jsp HTTP/1.1" 200 3361 http-bio-8080-exec-13 1
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:21 -0300] "GET / HTTP/1.1" 200 3328 http-bio-8080-exec-1 604
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:22 -0300] "GET /assets/home.png HTTP/1.1" 200 322 http-bio-8080-exec-3 5
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:22 -0300] "GET /assets/diagrama.png HTTP/1.1" 200 351 http-bio-8080-exec-2 5
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:22 -0300] "GET /assets/trending.png HTTP/1.1" 200 365 http-bio-8080-exec-6 5
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:22 -0300] "GET /assets/comunidade.png HTTP/1.1" 200 388 http-bio-8080-exec-5 6
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:22 -0300] "GET /css/home.css?v=1.0 HTTP/1.1" 200 4055 http-bio-8080-exec-4 30
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:22 -0300] "GET /assets/search.png HTTP/1.1" 200 31204 http-bio-8080-exec-4 11
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:22 -0300] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-4 1
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:48:27 -0300] "GET /home HTTP/1.1" 200 8813 http-bio-8080-exec-5 663
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:51:00 -0300] "GET /home HTTP/1.1" 200 8813 http-bio-8080-exec-1 241
+0:0:0:0:0:0:0:1 - - [03/May/2024:23:53:24 -0300] "GET /home HTTP/1.1" 200 8813 http-bio-8080-exec-10 265

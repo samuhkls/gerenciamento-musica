@@ -8,18 +8,18 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener | Home</title>
-    <link rel="stylesheet" href="css/home.css?v=1.0">
+    <link rel="stylesheet" href="css/home.css?v=4.0">
 </head>
 
 <body>
     <header>
         <div class="navpane">
             <div class="nav-logo">
-                <a href="index.jsp"><h1 id="logo">Listener</h1></a>
+                <a href="/home"><h1 id="logo">Listener</h1></a>
             </div>
 
             <div class="nav-icons">
-                <img src="assets/home.png" alt=""> <a href="index.jsp">Inicio</a>
+                <img src="assets/home.png" alt=""> <a href="/home">Inicio</a>
                 <img src="assets/diagrama.png" alt=""> <a href="">Explorar</a>
                 <img src="assets/comunidade.png" alt=""> <a href="">Comunidade</a>
                 <img src="assets/trending.png" alt=""> <a href="">Em alta</a>
@@ -58,6 +58,7 @@
                 <div class="top-musics-content">
                     <c:forEach var="musica" items="${musicas}">
                         <div class="musica-item-container">
+                            <img src="${musica.imageURL}" class="item-image"></img>
                             <span class="item-nome">${musica.nome}</span>
                             <span class="item-artista">${musica.artista}</span>
                         </div>
@@ -90,6 +91,9 @@
          </div>
          <footer class="footer-container">
           <p>Desenvolvido usando as tecnologias Maven, JSP, H2, Java e LastFM API.</p>
+          <c:if test="${sessionScope.loggedUser != null}">
+                  <span>${sessionScope.loggedUser}</span>
+          </c:if>
         </footer>
     </div>
 

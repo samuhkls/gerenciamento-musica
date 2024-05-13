@@ -4,12 +4,14 @@ public class Musica {
     private String nome;
     private String artista;
     private double duracao;
+    private String imageURL;
 
     public Musica(String nome, String artista, int minutos, int segundos){
         this.nome = nome;
         this.artista = artista;
         this.duracao = (minutos * 60) + segundos;
     }
+
 
     public Musica(String nome, String artista, int milisegundos){
         this.nome = nome;
@@ -20,7 +22,13 @@ public class Musica {
         this.nome = nome;
     }
 
-    public Musica() {
+    public Musica(String nome, String artista, String imageURL) {
+        this.nome = nome;
+        this.artista = artista;
+        this.imageURL = imageURL;
+    }
+
+    public Musica(){
 
     }
 
@@ -59,4 +67,13 @@ public class Musica {
     public void setDuracao(double milisegundos){
         this.duracao = milisegundos/60000;
     }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 }
+

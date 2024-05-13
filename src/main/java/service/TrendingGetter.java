@@ -31,28 +31,33 @@ public class TrendingGetter {
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
                     .queryString("method", "chart.getTopTracks")
-                    .queryString("limit", "20")
+                    .queryString("limit", "19")
                     .queryString("format", "json")
                     .asJson();
 
             JSONObject jsonResposta = new JSONObject(resposta.getBody());
+            System.out.println(jsonResposta);
             JSONArray trendingList = jsonResposta.getJSONObject("object").getJSONObject("tracks").getJSONArray("track");
-            JSONObject track = trendingList.getJSONObject(0);
 
             String tracknome;
             String artistanome;
+            String imageURL;
 
             List<Musica> trendingMusicas = new ArrayList<>();
+            ImageGetter getter = new ImageGetter();
 
             for(int i = 0; i< trendingList.length(); i++){
                 tracknome = trendingList.getJSONObject(i).getString("name");
                 //System.out.println(tracknome);
-                artistanome = trendingList.getJSONObject(i).getJSONObject("artist").getString("name");
-                //System.out.println(artistanome);
+                artistanome = trendingList.getJSONObject(i).getJSONObject("artist")
+                        .getString("name");
+
+                imageURL = getter.getImage(tracknome, artistanome);
+                System.out.println(imageURL);
 
                 System.out.println(tracknome + " - " + artistanome);
 
-                Musica musica = new Musica(tracknome, artistanome);
+                Musica musica = new Musica(tracknome, artistanome, imageURL);
                 trendingMusicas.add(musica);
 
             }
