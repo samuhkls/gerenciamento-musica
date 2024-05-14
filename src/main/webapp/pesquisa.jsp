@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/pesquisa.css?v=1.0">
+    <link rel="stylesheet" href="css/pesquisa.css?v=2.0">
 </head>
 
 <body>
@@ -57,13 +57,25 @@
              </hr>
           <div class="faixas-container">
               <p class="faixas-subtitle">Faixas</p>
+
+              <form action="/lista-musicas" method="GET">
                <c:forEach var="musica" items="${musicas}">
                     <div class="musica-item-container">
                       <span class="item-nome">${musica.nome}</span>
                       <span class="item-artista">${musica.artista}</span>
+                      <span class="id-musica" id="id-musica">
+
+                      <form action="/add-musica" method="POST">
+                          <input type="hidden" name="musicaNome" value="${musica.nome}">
+                          <input type="hidden" name="musicaArtista" value="${musica.artista}">
+                          <button type="submit" class="fav-musica">+</button>
+                      </form>
+
                     </div>
                </c:forEach>
+               </form>
         </div>
+
 
 </body>
 

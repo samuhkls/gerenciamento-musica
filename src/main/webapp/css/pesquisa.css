@@ -140,3 +140,8 @@ hr{
 .musica-container{
     padding-bottom: 20px;
 }
+
+.fav-musica{
+    padding-left: 10px;
+    cursor: pointer;
+}

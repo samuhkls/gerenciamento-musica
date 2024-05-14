@@ -24,6 +24,7 @@
                 <img src="assets/comunidade.png" alt=""> <a href="">Comunidade</a>
                 <img src="assets/trending.png" alt=""> <a href="">Em alta</a>
             </div>
+
             <div class="nav-search-box">
                 <form action="/create-musica" method="POST">
                     <input type="text" name="musica" placeholder="Pesquise sua musica: " >
