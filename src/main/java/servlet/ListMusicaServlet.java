@@ -14,23 +14,24 @@ import java.io.IOException;
 import java.util.List;
 @WebServlet("/lista-musicas")
 public class ListMusicaServlet extends HttpServlet {
-        Playlist play = new Playlist();
+    Playlist play = new Playlist();
 
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            List<Musica> musicas = new musicaDAO().findAllMusicas();
 
-            request.setAttribute("musicas", musicas);
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            String teste;
+        List<Musica> musicas = new musicaDAO().findAllMusicas();
 
-            teste = musicas.get(1).getNome();
+        request.setAttribute("musicas", musicas);
 
-            request.getRequestDispatcher("pesquisa.jsp").forward(request, response);
+        String teste;
 
-            System.out.println(musicas.get(1).getNome());
+        teste = musicas.get(1).getNome();
 
+        request.getRequestDispatcher("pesquisa.jsp").forward(request, response);
+
+        System.out.println(musicas.get(1).getNome());
 
         }
 

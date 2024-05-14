@@ -46,9 +46,18 @@ public class musicaDAO {
 
             preparedStatement.executeUpdate();
 
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                musica.setId(id);
+            }
+
+
             System.out.println(musica.getArtista());
             System.out.println(musica.getDuracao());
             System.out.println(musica.getNome());
+            System.out.println(musica.getId());
             System.out.println("success in insert music");
 
             connection.close();

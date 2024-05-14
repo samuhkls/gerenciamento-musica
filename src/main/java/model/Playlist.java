@@ -8,6 +8,15 @@ public class Playlist {
     private int quantidade;
     private String autor;
     private ArrayList<Musica> musicas;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     // Construtor que inicializa a lista de músicas
     public Playlist() {

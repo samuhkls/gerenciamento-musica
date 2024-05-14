@@ -30,11 +30,8 @@ public class UserDAO {
 
             //CREATE TABLE MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)
 
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-            PreparedStatement connectStatement = connection.prepareStatement(connect);
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
-            connectStatement.executeUpdate();
 
             System.out.println(user.getUsername());
             System.out.println(user.getEmail());
@@ -45,6 +42,14 @@ public class UserDAO {
             preparedStatement.setString(3, user.getPassword());
 
             preparedStatement.executeUpdate();
+
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    user.setId(generatedKeys.getInt(1));
+                } else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            }
 
             System.out.println(user.getUsername());
             System.out.println(user.getEmail());

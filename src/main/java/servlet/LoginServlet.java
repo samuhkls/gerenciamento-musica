@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet{
         boolean isValidUser = new UserDAO().verifyCredentials(user);
 
         if (isValidUser) {
-            req.getSession().setAttribute("loggedUser", email);
+            req.getSession().setAttribute("loggedUser", user);
             resp.sendRedirect("home");
         } else {
             req.setAttribute("message", "Invalid credentials!");
