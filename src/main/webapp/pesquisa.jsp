@@ -68,6 +68,7 @@
                       <form action="/add-musica" method="POST">
                           <input type="hidden" name="musicaNome" value="${musica.nome}">
                           <input type="hidden" name="musicaArtista" value="${musica.artista}">
+                          <input type="hidden" name="musicaId" value="${musica.id}">
                           <button type="submit" class="fav-musica">+</button>
                       </form>
 

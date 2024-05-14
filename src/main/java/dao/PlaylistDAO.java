@@ -35,13 +35,21 @@ public class PlaylistDAO  {
 
         try (
         Connection connection = ConnectionPoolConfig.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, playlist.getNomePLaylist());
             preparedStatement.setString(2, playlist.getAutor());
             preparedStatement.setInt(3, user.getId());
 
             preparedStatement.executeUpdate();
+
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    playlist.setId(generatedKeys.getInt(1));
+                } else {
+                    throw new SQLException("Creating playlist failed, no ID obtained.");
+                }
+            }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
