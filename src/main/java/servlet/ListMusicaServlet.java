@@ -18,6 +18,7 @@ public class ListMusicaServlet extends HttpServlet {
 
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            
 
             List<Musica> musicas = new musicaDAO().findAllMusicas();
 

@@ -9,13 +9,13 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet{
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getSession().invalidate();
+        request.getSession().invalidate();
 
-        req.setAttribute("message", "Success on logout");
+        request.setAttribute("message", "Success on logout");
 
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+        request.getRequestDispatcher("login.jsp").forward(request, resp);
 
     }
 }

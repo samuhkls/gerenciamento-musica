@@ -13,25 +13,25 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet{
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        request.getRequestDispatcher("login.jsp").forward(request, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("user-login");
-        String email = req.getParameter("email-login");
-        String password = req.getParameter("password-login");
+    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        String username = request.getParameter("user-login");
+        String email = request.getParameter("email-login");
+        String password = request.getParameter("password-login");
 
         User user = new User(username, email, password);
         boolean isValidUser = new UserDAO().verifyCredentials(user);
 
         if (isValidUser) {
-            req.getSession().setAttribute("loggedUser", email);
+            request.getSession().setAttribute("loggedUser", user);
             resp.sendRedirect("home");
         } else {
-            req.setAttribute("message", "Invalid credentials!");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            request.setAttribute("message", "Invalid credentials!");
+            request.getRequestDispatcher("login.jsp").forward(request, resp);
         }
 
     }
