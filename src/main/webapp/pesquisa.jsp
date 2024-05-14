@@ -57,13 +57,17 @@
              </hr>
           <div class="faixas-container">
               <p class="faixas-subtitle">Faixas</p>
+              <form action="/create-musica" method="POST>
                <c:forEach var="musica" items="${musicas}">
                     <div class="musica-item-container">
                       <span class="item-nome">${musica.nome}</span>
                       <span class="item-artista">${musica.artista}</span>
+                      <button type="submit" class="fav-musica">+</button>
                     </div>
                </c:forEach>
+               </form>
         </div>
+
 
 </body>
 

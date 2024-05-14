@@ -75,5 +75,11 @@ public class Musica {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
+
+    @Override
+    public String toString() {
+        return "Música: " + nome + " - Artista: " + artista;
+    }
+
 }
 

@@ -8,8 +8,10 @@ servlet\config\ConnectionPoolConfig.class
 dao\musicaDAO.class
 servlet\LoginServlet.class
 servlet\CreateMusicaServlet.class
+service\PlaylistManager.class
 servlet\HomeServlet.class
 dao\UserDAO.class
+model\Playlist.class
 servlet\RegisterServlet.class
 servlet\ListMusicaServlet.class
 model\User.class
