@@ -36,7 +36,7 @@ public class musicaDAO {
 
 
             PreparedStatement connectStatement = connection.prepareStatement(connect);
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             connectStatement.executeUpdate();
 
@@ -46,7 +46,7 @@ public class musicaDAO {
 
             preparedStatement.executeUpdate();
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
 
             if (resultSet.next()) {
                 int id = resultSet.getInt(1);

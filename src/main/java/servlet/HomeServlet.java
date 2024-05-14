@@ -16,11 +16,11 @@ import java.util.List;
 public class HomeServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User loggedUser = (User) req.getSession().getAttribute("loggedUser");
+    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        User loggedUser = (User) request.getSession().getAttribute("loggedUser");
         TrendingGetter getter = new TrendingGetter();
         List<Musica> trendingMusicas = getter.getTrending();
-        req.setAttribute("musicas", trendingMusicas);
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        request.setAttribute("musicas", trendingMusicas);
+        request.getRequestDispatcher("/index.jsp").forward(request, resp);
     }
 }

@@ -4,6 +4,10 @@ public class User {
 
     private String email;
 
+    public User() {
+
+    }
+
     public String getEmail() {
         return email;
     }

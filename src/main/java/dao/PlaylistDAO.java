@@ -19,6 +19,20 @@ public class PlaylistDAO  {
 
     public void createPlaylist(Playlist playlist, User user){
 
+        try{
+            Connection connection = ConnectionPoolConfig.getConnection();
+
+
+            PreparedStatement connectStatement = connection.prepareStatement(connect);
+            connectStatement.executeUpdate();
+
+            connection.close();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         try (
         Connection connection = ConnectionPoolConfig.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
@@ -65,6 +79,7 @@ public class PlaylistDAO  {
     }
 
     public void addMusicaToPlaylist(Playlist playlist, Musica musica) {
+        initializeDatabase();
         String SQL = "INSERT INTO PlaylistMusica (playlistId, musicaId) VALUES (?, ?)";
 
         try (Connection connection = ConnectionPoolConfig.getConnection();
@@ -75,6 +90,10 @@ public class PlaylistDAO  {
             preparedStatement.setInt(2, musica.getId());
 
             preparedStatement.executeUpdate();
+
+            System.out.println("musica sendo add no banco");
+            System.out.println(playlist.getMusicas());
+            System.out.println(musica.getNome());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

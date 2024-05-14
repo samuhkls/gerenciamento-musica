@@ -54,6 +54,7 @@ public class UserDAO {
             System.out.println(user.getUsername());
             System.out.println(user.getEmail());
             System.out.println(user.getPassword());
+            System.out.println(user.getId());
             System.out.println("success in insert user");
 
             connection.close();
@@ -66,6 +67,29 @@ public class UserDAO {
 
 
     }
+
+    public int findUserId(String nome){
+        String SQL = "SELECT ID FROM USR WHERE USERNAME = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, nome);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("ID");
+            } else {
+                throw new RuntimeException("User not found");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public boolean verifyCredentials(User user){
 
         String SQL = "SELECT * FROM USR WHERE USERNAME = ?";

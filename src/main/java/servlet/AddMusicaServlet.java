@@ -1,7 +1,9 @@
 package servlet;
 
+import dao.PlaylistDAO;
 import model.Musica;
 import model.Playlist;
+import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,16 +16,20 @@ import java.io.IOException;
 public class AddMusicaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        User loggedUser = (User) request.getSession().getAttribute("loggedUser");
 
         String musicaNome = request.getParameter("musicaNome");
         String artistaNome = request.getParameter("musicaArtista");
-        // Assuming you have a method to get a music by its name
+
         Musica musica = new Musica(musicaNome, artistaNome);
-        // Assuming you have a method to get the current user's playlist
+
         Playlist play = new Playlist();
         play.addMusica(musica);
-        // Redirect the user back to the music list
+
+        PlaylistDAO dao = new PlaylistDAO();
+        dao.createPlaylist(play, loggedUser);
+        dao.addMusicaToPlaylist(play, musica);
+
         for (int i = 0; i < play.getMusicas().size(); i++){
             System.out.println(play.getMusicas().get(i));
         }

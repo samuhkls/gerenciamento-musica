@@ -13,19 +13,19 @@ import java.io.IOException;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        request.getRequestDispatcher("login.jsp").forward(request, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("user-register");
-        String email = req.getParameter("email-register");
-        String password = req.getParameter("password-register");
+    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        String username = request.getParameter("user-register");
+        String email = request.getParameter("email-register");
+        String password = request.getParameter("password-register");
 
-        req.getSession().setAttribute("loggedUser", username);
 
         User user = new User(username, email, password);
+        request.getSession().setAttribute("loggedUser", user);
 
         new UserDAO().createUser(user);
 
