@@ -23,9 +23,9 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email-register");
         String password = request.getParameter("password-register");
 
-        request.getSession().setAttribute("loggedUser", username);
 
         User user = new User(username, email, password);
+        request.getSession().setAttribute("loggedUser", user);
 
         new UserDAO().createUser(user);
 

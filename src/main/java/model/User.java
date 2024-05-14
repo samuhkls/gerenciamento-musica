@@ -4,6 +4,10 @@ public class User {
 
     private String email;
 
+    public User() {
+
+    }
+
     public String getEmail() {
         return email;
     }
@@ -14,6 +18,15 @@ public class User {
 
     private String username;
     private String password;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public User(String username, String email, String password) {
         this.username = username;

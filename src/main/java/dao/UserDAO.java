@@ -30,11 +30,8 @@ public class UserDAO {
 
             //CREATE TABLE MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)
 
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-            PreparedStatement connectStatement = connection.prepareStatement(connect);
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
-            connectStatement.executeUpdate();
 
             System.out.println(user.getUsername());
             System.out.println(user.getEmail());
@@ -46,9 +43,18 @@ public class UserDAO {
 
             preparedStatement.executeUpdate();
 
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    user.setId(generatedKeys.getInt(1));
+                } else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            }
+
             System.out.println(user.getUsername());
             System.out.println(user.getEmail());
             System.out.println(user.getPassword());
+            System.out.println(user.getId());
             System.out.println("success in insert user");
 
             connection.close();
@@ -61,6 +67,29 @@ public class UserDAO {
 
 
     }
+
+    public int findUserId(String nome){
+        String SQL = "SELECT ID FROM USR WHERE USERNAME = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, nome);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("ID");
+            } else {
+                throw new RuntimeException("User not found");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public boolean verifyCredentials(User user){
 
         String SQL = "SELECT * FROM USR WHERE USERNAME = ?";

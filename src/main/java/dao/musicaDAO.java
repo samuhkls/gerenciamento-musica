@@ -31,12 +31,8 @@ public class musicaDAO {
         try {
             Connection connection = ConnectionPoolConfig.getConnection();
 
-
-            //CREATE TABLE MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)
-
-
             PreparedStatement connectStatement = connection.prepareStatement(connect);
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             connectStatement.executeUpdate();
 
@@ -46,9 +42,23 @@ public class musicaDAO {
 
             preparedStatement.executeUpdate();
 
+
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()){
+                if (generatedKeys.next()) {
+                    int id = generatedKeys.getInt(1);
+                    musica.setId(id);
+                }else {
+                    throw new SQLException("Creating musica failed, no ID obtained.");
+                }
+            }
+
+
+
+
             System.out.println(musica.getArtista());
             System.out.println(musica.getDuracao());
             System.out.println(musica.getNome());
+            System.out.println(musica.getId());
             System.out.println("success in insert music");
 
             connection.close();
@@ -77,8 +87,10 @@ public class musicaDAO {
                 String musicaNome = resultSet.getString("NOME");
                 String artista = resultSet.getString("ARTISTA");
                 double duracao = resultSet.getDouble("DURACAO");
+                int id = resultSet.getInt("ID");
 
                 Musica musica = new Musica(musicaNome, artista, duracao);
+                musica.setId(id);
                 musicas.add(musica);
 
             }
@@ -93,5 +105,34 @@ public class musicaDAO {
             e.printStackTrace();
             return Collections.emptyList();
         }
+    }
+    public int getMusicaByNome(String nome){
+
+        String SQL = "SELECT * FROM Musica WHERE NOME = ?";
+        Musica musica = new Musica();
+        int id = 0;
+
+
+        try{
+            Connection connection = ConnectionPoolConfig.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+
+            preparedStatement.setString(1, nome);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                musica = new Musica();
+                musica.setId(resultSet.getInt("id"));
+                id = musica.getId();
+                return id;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return id;
     }
 }

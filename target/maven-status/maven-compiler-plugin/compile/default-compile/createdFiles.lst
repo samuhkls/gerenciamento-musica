@@ -2,13 +2,16 @@ servlet\LogoutServlet.class
 test\TrendingTest.class
 service\SearchTrack.class
 service\TrendingGetter.class
+dao\PlaylistDAO.class
 model\Musica.class
+test\PlaylistTest.class
 filter\AuthenticationFilter.class
 servlet\config\ConnectionPoolConfig.class
 dao\musicaDAO.class
 servlet\LoginServlet.class
 servlet\CreateMusicaServlet.class
 service\PlaylistManager.class
+servlet\AddMusicaServlet.class
 servlet\HomeServlet.class
 dao\UserDAO.class
 model\Playlist.class

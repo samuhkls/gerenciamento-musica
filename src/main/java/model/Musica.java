@@ -5,6 +5,15 @@ public class Musica {
     private String artista;
     private double duracao;
     private String imageURL;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Musica(String nome, String artista, int minutos, int segundos){
         this.nome = nome;

@@ -24,7 +24,11 @@ public class LoginServlet extends HttpServlet{
         String password = request.getParameter("password-login");
 
         User user = new User(username, email, password);
+        UserDAO dao = new UserDAO();
+        // pegando id do user (com base no username) do banco
+        user.setId(dao.findUserId(user.getUsername()));
         boolean isValidUser = new UserDAO().verifyCredentials(user);
+
 
         if (isValidUser) {
             request.getSession().setAttribute("loggedUser", user);
@@ -35,6 +39,8 @@ public class LoginServlet extends HttpServlet{
         }
 
     }
+
+
 
 
 }
