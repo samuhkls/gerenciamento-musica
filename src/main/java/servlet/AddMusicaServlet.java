@@ -13,19 +13,20 @@ import java.io.IOException;
 @WebServlet("/add-musica")
 public class AddMusicaServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String musicaName = request.getParameter("musicaName");
+
+        String musicaNome = request.getParameter("musicaNome");
+        String artistaNome = request.getParameter("musicaArtista");
         // Assuming you have a method to get a music by its name
-        Musica musica = getMusicaByName(musicaName);
+        Musica musica = new Musica(musicaNome, artistaNome);
         // Assuming you have a method to get the current user's playlist
         Playlist play = new Playlist();
         play.addMusica(musica);
         // Redirect the user back to the music list
-        response.sendRedirect("/lista-musicas");
         for (int i = 0; i < play.getMusicas().size(); i++){
             System.out.println(play.getMusicas().get(i));
         }
-
+        response.sendRedirect("/lista-musicas");
     }
 }
