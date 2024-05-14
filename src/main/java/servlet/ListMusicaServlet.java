@@ -2,6 +2,7 @@ package servlet;
 
 import model.Musica;
 import dao.musicaDAO;
+import model.Playlist;
 
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 @WebServlet("/lista-musicas")
 public class ListMusicaServlet extends HttpServlet {
+        Playlist play = new Playlist();
 
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,11 +31,21 @@ public class ListMusicaServlet extends HttpServlet {
 
             System.out.println(musicas.get(1).getNome());
 
+
         }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/lista-musicas");
+        String musicanome = request.getParameter("item-nome");
+        String artista = request.getParameter("item-artista");
+
+        Musica musica = new Musica(musicanome, artista);
+
+        play.addMusica(musica);
+
+        for (int i = 0; i < play.getMusicas().size(); i++){
+            System.out.println(play.getMusicas().get(i));
+        }
     }
 
     }
