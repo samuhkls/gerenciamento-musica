@@ -73,9 +73,9 @@ public class PlaylistDAO  {
             // criando a lista com todas as playlists que pertencem aquele usuario
             while (resultSet.next()) {
                 Playlist playlist = new Playlist();
-                playlist.setNomePLaylist(resultSet.getString("name"));
-                playlist.setAutor(resultSet.getString("author"));
-                playlist.setQuantidade(resultSet.getInt("quantity"));
+                playlist.setNomePLaylist(resultSet.getString("nome"));
+                playlist.setAutor(resultSet.getString("autor"));
+                playlist.setId(resultSet.getInt("id"));
                 playlists.add(playlist);
             }
 
