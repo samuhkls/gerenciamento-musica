@@ -73,5 +73,4 @@ public class RecommendationManager {
 
     }
 
-    public List<Musica> recommendArtistas
 }
