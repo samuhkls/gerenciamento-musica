@@ -141,6 +141,33 @@ public class PlaylistDAO  {
         return musicas;
     }
 
+    public Playlist getPlaylistByName(String playlistName, User user) {
+        String SQL = "SELECT * FROM Playlist WHERE nome = ? AND userId = ?";
+        Playlist playlist = null;
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, playlistName);
+            preparedStatement.setInt(2, user.getId());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                playlist = new Playlist();
+                playlist.setId(resultSet.getInt("id"));
+                playlist.setNomePLaylist(resultSet.getString("nome"));
+                playlist.setAutor(resultSet.getString("autor"));
+                // You might also want to retrieve the list of songs in the playlist here
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return playlist;
+    }
+
     public void initializeDatabase() {
         String SQL = "CREATE TABLE IF NOT EXISTS PlaylistMusica ("
                 + "playlistId INT, "

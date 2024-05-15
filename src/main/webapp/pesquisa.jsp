@@ -58,22 +58,32 @@
           <div class="faixas-container">
               <p class="faixas-subtitle">Faixas</p>
 
+              <form action="/create-playlist" method="POST">
+                  <input type="text" name="playlistName" placeholder="Digite o nome da playlist">
+                  <button type="submit">Criar playlist</button>
+              </form>
+
+
               <form action="/lista-musicas" method="GET">
                <c:forEach var="musica" items="${musicas}">
-                    <div class="musica-item-container">
-                      <span class="item-nome">${musica.nome}</span>
-                      <span class="item-artista">${musica.artista}</span>
-                      <span class="id-musica" id="id-musica">
+                   <div class="musica-item-container">
+                       <span class="item-nome">${musica.nome}</span>
+                       <span class="item-artista">${musica.artista}</span>
+                       <span class="id-musica" id="id-musica">
 
-                      <form action="/add-musica" method="POST">
-                          <input type="hidden" name="musicaNome" value="${musica.nome}">
-                          <input type="hidden" name="musicaArtista" value="${musica.artista}">
-                          <input type="hidden" name="musicaId" value="${musica.id}">
-                          <button type="submit" class="fav-musica">+</button>
-                      </form>
-
-                    </div>
+                       <form action="/add-musica" method="POST">
+                           <input type="hidden" name="musicaId" value="${musica.id}">
+                           <select name="playlistName">
+                               <c:forEach var="playlist" items="${playlists}">
+                                   <option value="${playlist.nomePLaylist}">${playlist.nomePLaylist}</option>
+                               </c:forEach>
+                           </select>
+                           <button type="submit">Add Song to Playlist</button>
+                       </form>
+                   </div>
                </c:forEach>
+
+
                </form>
         </div>
 
