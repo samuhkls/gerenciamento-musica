@@ -135,4 +135,30 @@ public class musicaDAO {
         }
         return id;
     }
+
+    public Musica getMusicaById(int id) {
+        String SQL = "SELECT * FROM Musica WHERE ID = ?";
+        Musica musica = null;
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                musica = new Musica();
+                musica.setId(resultSet.getInt("id"));
+                musica.setNome(resultSet.getString("nome"));
+                musica.setArtista(resultSet.getString("artista"));
+                musica.setDuracao(resultSet.getDouble("duracao"));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return musica;
+    }
 }

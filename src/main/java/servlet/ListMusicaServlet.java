@@ -1,8 +1,10 @@
 package servlet;
 
+import dao.PlaylistDAO;
 import model.Musica;
 import dao.musicaDAO;
 import model.Playlist;
+import model.User;
 
 
 import javax.servlet.ServletException;
@@ -20,10 +22,14 @@ public class ListMusicaServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User loggedUser = (User) request.getSession().getAttribute("loggedUser");
 
         List<Musica> musicas = new musicaDAO().findAllMusicas();
 
         request.setAttribute("musicas", musicas);
+
+        List<Playlist> playlists = new PlaylistDAO().getPlaylistsByUser(loggedUser);
+        request.setAttribute("playlists", playlists);
 
         String teste;
 

@@ -22,25 +22,15 @@ public class AddMusicaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
 
-        String musicaNome = request.getParameter("musicaNome");
-        String artistaNome = request.getParameter("musicaArtista");
-        int musicaiD = new musicaDAO().getMusicaByNome(musicaNome);
-        Musica musica = new Musica(musicaNome, artistaNome);
-        musica.setId(musicaiD);
+        int musicaId = Integer.parseInt(request.getParameter("musicaId"));
+        Musica musica = new musicaDAO().getMusicaById(musicaId);
 
-        Playlist play = new Playlist();
-        play.addMusica(musica);
-
-        play.setAutor(loggedUser.getUsername());
-        play.setNomePLaylist("lucas");
-
+        String playlistName = request.getParameter("playlistName");
         PlaylistDAO dao = new PlaylistDAO();
-        dao.createPlaylist(play, loggedUser);
+        Playlist play = dao.getPlaylistByName(playlistName, loggedUser);
+
         dao.addMusicaToPlaylist(play, musica);
 
-        for (int i = 0; i < play.getMusicas().size(); i++){
-            System.out.println(play.getMusicas().get(i));
-        }
         response.sendRedirect("/lista-musicas");
     }
 }
