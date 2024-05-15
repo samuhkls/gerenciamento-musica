@@ -74,13 +74,28 @@ public class RecommendationManager {
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
                     .queryString("method", "artist.getSimilar")
-                    .queryString("limit", 19)
+                    .queryString("limit", 2)
                     .queryString("artist", artistanome)
                     .queryString("format", "json")
                     .asJson();
 
             JSONObject jsonResposta = new JSONObject(resposta.getBody());
             System.out.println(jsonResposta);
+
+            JSONArray similarArtists = jsonResposta.getJSONObject("object")
+                    .getJSONObject("similarartists").getJSONArray("artist");
+
+            List<String> artistasRecomendados = new ArrayList<>();
+
+
+            for(int i = 0; i<similarArtists.length(); i++){
+                artistanome = similarArtists.getJSONObject(i).getString("name");
+                System.out.println(artistanome);
+
+                artistasRecomendados.add(artistanome);
+                System.out.println(artistasRecomendados);
+            }
+
 
 
         }catch (UnirestException e) {
