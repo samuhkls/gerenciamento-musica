@@ -7,7 +7,7 @@ public class Playlist {
     private String nomePLaylist;
     private int quantidade;
     private String autor;
-    private ArrayList<Musica> musicas;
+    private final ArrayList<Musica> musicas;
     private int id;
 
     public int getId() {
