@@ -19,7 +19,6 @@ public class RecommendationManager {
     String resposta;
     String tracknome;
     String artistanome;
-    String imageURL;
 
     //List<Musica>
 
@@ -43,7 +42,6 @@ public class RecommendationManager {
             JSONArray recommendList = jsonResposta.getJSONObject("object").getJSONObject("similartracks").getJSONArray("track");
 
             List<Musica> musicasRecomendadas = new ArrayList<>();
-            ImageGetter getter = new ImageGetter();
 
 
             for(int i = 0; i< recommendList.length(); i++) {
@@ -53,12 +51,9 @@ public class RecommendationManager {
                         .getString("name");
                 System.out.println(artistanome);
 
-                imageURL = getter.getImage(tracknome, artistanome);
-                System.out.println(imageURL);
-
                 System.out.println(tracknome + " - " + artistanome);
 
-                musica = new Musica(tracknome, artistanome, imageURL);
+                musica = new Musica(tracknome, artistanome);
                 musicasRecomendadas.add(musica);
 
             }
@@ -73,4 +68,23 @@ public class RecommendationManager {
 
     }
 
+    public void recommendArtistas(String artistanome){
+        try {
+            HttpResponse<JsonNode> resposta = Unirest.get("https://ws.audioscrobbler.com/2.0/")
+                    .header("user-agent", USER_AGENT)
+                    .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
+                    .queryString("method", "artist.getSimilar")
+                    .queryString("limit", 19)
+                    .queryString("artist", artistanome)
+                    .queryString("format", "json")
+                    .asJson();
+
+            JSONObject jsonResposta = new JSONObject(resposta.getBody());
+            System.out.println(jsonResposta);
+
+
+        }catch (UnirestException e) {
+            e.printStackTrace();
+        }
+    }
 }
