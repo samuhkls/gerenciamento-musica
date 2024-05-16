@@ -73,8 +73,11 @@ public class PlaylistDAO  {
             // criando a lista com todas as playlists que pertencem aquele usuario
             while (resultSet.next()) {
                 Playlist playlist = new Playlist();
+                playlist.setId(resultSet.getInt("ID"));
                 playlist.setNomePLaylist(resultSet.getString("NOME"));
                 playlist.setAutor(resultSet.getString("AUTOR"));
+                int qtd = getQuantidadeInPlaylist(playlist);
+                playlist.setQuantidade(qtd);
                 playlists.add(playlist);
             }
 
@@ -166,6 +169,28 @@ public class PlaylistDAO  {
         }
 
         return playlist;
+    }
+
+    public int getQuantidadeInPlaylist(Playlist playlist) {
+        String SQL = "SELECT COUNT(*) FROM PlaylistMusica WHERE playlistId = ?";
+        int qtd = 0;
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setInt(1, playlist.getId());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                qtd = resultSet.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return qtd;
     }
 
     public void initializeDatabase() {

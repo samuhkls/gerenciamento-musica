@@ -33,7 +33,15 @@ public class ProfileServlet extends HttpServlet {
             request.setAttribute("id", id);
 
             List<Playlist> playlists = dao.getPlaylistsByUser(loggedUser);
+
+//            for(Playlist playlist : playlists){
+//                List<Musica> musicas = dao.getMusicasInPlaylist(playlist);
+//                int songCount = musicas.size();
+//                playlist.setQuantidade(songCount);
+//            }
             request.setAttribute("playlists", playlists);
+
+
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
             dispatcher.forward(request, response);
