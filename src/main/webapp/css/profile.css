@@ -116,3 +116,24 @@ hr{
     margin-left: 18%;
     margin-right: 18%;
 }
+
+.profile-container{
+    height: 20vh;
+    background-color: #383E3E;
+    padding: 20px;
+    display: flex;
+}
+
+.profile-image{
+    width: auto;
+    height: 90%;
+    padding-right: 10px;
+}
+
+.profile-data {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-left: 20px;
+    gap: 4px;
+}

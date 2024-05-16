@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/profile.css?v=3.0">
+    <link rel="stylesheet" href="css/profile.css?v=4.0">
 </head>
 
 <body>
@@ -51,10 +51,11 @@
 
     <div class="page-content">
          <div class="profile-container">
-            <h2>Meus dados</h2>
-            <p>ID: ${id}</p>
-            <p>Usuario: ${username}</p>
-            <p>Email: ${email}</p>
+            <img src="assets/profile-icon.png" class="profile-image">
+            <div class="profile-data">
+            <h2>${username}</h2>
+            <p>(${email})</p>
+            </div>
          </div>
 
          <div class="playlist-container">
