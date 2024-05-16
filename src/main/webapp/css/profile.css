@@ -32,10 +32,11 @@
 .nav-icons{
     margin-left: -18%;
     font-size: 17px;
-    width: 28%;
+    width: 20%;
     justify-content: space-around;
     display: flex;
     align-items: center;
+    gap: 18px;
 }
 
 form{
@@ -118,7 +119,7 @@ hr{
 }
 
 .profile-container{
-    height: 20vh;
+    height: 16vh;
     background-color: #383E3E;
     padding: 20px;
     display: flex;
@@ -128,6 +129,7 @@ hr{
     width: auto;
     height: 90%;
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 .profile-data {
@@ -136,4 +138,60 @@ hr{
     color: white;
     padding-left: 20px;
     gap: 4px;
+}
+
+.playlist-h2 {
+    padding-top: 10px;
+    margin-bottom: 4px;
+    color: #9D4CB1;
+}
+
+.musica-item-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#musica-artista-playlist{
+    font-weight: 300;
+}
+
+#musica-nome-playlist{
+    padding-top: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 2px;
+}
+
+#autor-playlist{
+    font-weight: bold;
+}
+
+#titulo-playlist{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.wrap-playlist{
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-item-container {
+    margin-bottom: 20px;
+    max-width: 26%;
+}
+
+hr {
+    height: 0.5px;
+    background-color: #9D4CB1s;
+    margin: 5px 0;
+}
+
+.musica-item-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#musica-nome-playlist, #musica-artista-playlist {
+    margin-right: 10px;
 }
