@@ -20,8 +20,10 @@
 
             <div class="nav-icons">
                 <img src="assets/home.png" alt=""> <a href="/home">Inicio</a>
+
                 <img src="assets/comunidade.png" alt=""> <a href="/comunnity">Comunidade</a>
                 <img src="assets/profile.png" alt=""> <a href="/profile">Meu Perfil</a>
+
             </div>
 
             <div class="nav-search-box">
@@ -67,13 +69,17 @@
               </div>
 
               <div class="top-artists">
-                  <div class="title-musics-container">
-                     <h3>Artistas em Alta</h3>
+                    <h3>Artistas em Alta</h3>
                      <h4>Os Artistas mais acessados em todo o mundo.</h4>
-                  </div>
-                  <div class="top-artists-container">
-
-                  </div>
+                     <div class="top-musics-content">
+                     <c:forEach var="artista" items="${artistas}">
+                         <div class="musica-item-container">
+                             <img src="${artista.imageURL}" class="item-image"></img>
+                              <span class="item-nome">${artista.nome}</span>
+                              <span class="item-artista">${artista.artista}</span>
+                         </div>
+                    </c:forEach>
+                </div>
               </div>
          </div>
 
@@ -99,6 +105,15 @@
                      <div class="title-musics-container">
                        <h3>Artistas Recomendados</h3>
                        <h4>Os Artistas que mais se assemelham ao seu gostos.</h4>
+                     </div>
+                     <div class="top-musics-content">
+                        <c:forEach var="recomendacoesAleatoriasArtista" items="${recomendacoesAleatoriasArtista}">
+                          <div class="musica-item-container">
+                            <img src="${recomendacoesAleatoriasArtista.imageURL}" class="item-image"></img>
+                            <span class="item-nome">${recomendacoesAleatoriasArtista.nome}</span>
+                            <span class="item-artista">${recomendacoesAleatoriasArtista.artista}</span>
+                          </div>
+                        </c:forEach>
                      </div>
               </div>
          </div>

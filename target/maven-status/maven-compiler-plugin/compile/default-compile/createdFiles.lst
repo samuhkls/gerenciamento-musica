@@ -7,6 +7,7 @@ test\PlaylistTest.class
 servlet\LoginServlet.class
 servlet\CreateMusicaServlet.class
 servlet\ProfileServlet.class
+service\TrendingArtistsGetter.class
 service\PlaylistManager.class
 servlet\AddMusicaServlet.class
 servlet\HomeServlet.class
