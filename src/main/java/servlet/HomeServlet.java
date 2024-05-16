@@ -2,8 +2,11 @@ package servlet;
 
 import model.Musica;
 import model.User;
+import service.Randomizer;
+import service.RecommendationManager;
 import service.TrendingGetter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +25,14 @@ public class HomeServlet extends HttpServlet {
         TrendingGetter getter = new TrendingGetter();
         List<Musica> trendingMusicas = getter.getTrending();
         request.setAttribute("musicas", trendingMusicas);
-        request.getRequestDispatcher("/index.jsp").forward(request, resp);
+
+        Randomizer randomizer = new Randomizer();
+        int quantidadeRecomendacoes = 2;
+        List<Musica> recomendacoesAleatorias = randomizer.getRandomRecommendations(loggedUser, quantidadeRecomendacoes);
+        request.setAttribute("recomendacoesAleatorias", recomendacoesAleatorias);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        dispatcher.forward(request, resp);
     }
 }
+

@@ -72,29 +72,39 @@
                      <h3>Artistas em Alta</h3>
                      <h4>Os Artistas mais acessados em todo o mundo.</h4>
                   </div>
+                  <div class="top-artists-container">
+
+                  </div>
               </div>
          </div>
 
          <div class="recommendations-container">
               <div class="recommendations-musics">
+
                     <div class="title-musics-container">
                       <h3>Musicas Recomendadas</h3>
                       <h4>Os As Musicas que mais se assemelham ao seus gostos.</h4>
                     </div>
-               </div>
 
-               <div class="recommendations-artists">
+                    <div class="recommend-musics-container">
+                        <c:forEach var="recomendacoesAleatorias" items="${recomendacoesAleatorias}">
+                          <span class="item-nome">${musica.nome}</span>
+                          <span class="item-artista">${musica.artista}</span>
+                        </c:forEach>
+                    </div>
+
+              </div>
+
+              <div class="recommendations-artists">
                      <div class="title-musics-container">
                        <h3>Artistas Recomendados</h3>
                        <h4>Os Artistas que mais se assemelham ao seu gostos.</h4>
                      </div>
                </div>
          </div>
+
          <footer class="footer-container">
           <p>Desenvolvido usando as tecnologias Maven, JSP, H2, Java e LastFM API.</p>
-          <c:if test="${sessionScope.loggedUser != null}">
-                  <span>${sessionScope.loggedUser}</span>
-          </c:if>
         </footer>
     </div>
 
