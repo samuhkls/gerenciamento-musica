@@ -105,6 +105,15 @@
                        <h3>Artistas Recomendados</h3>
                        <h4>Os Artistas que mais se assemelham ao seu gostos.</h4>
                      </div>
+                     <div class="top-musics-content">
+                        <c:forEach var="recomendacoesAleatoriasArtista" items="${recomendacoesAleatoriasArtista}">
+                          <div class="musica-item-container">
+                            <img src="${recomendacoesAleatoriasArtista.imageURL}" class="item-image"></img>
+                            <span class="item-nome">${recomendacoesAleatoriasArtista.nome}</span>
+                            <span class="item-artista">${recomendacoesAleatoriasArtista.artista}</span>
+                          </div>
+                        </c:forEach>
+                     </div>
               </div>
          </div>
 

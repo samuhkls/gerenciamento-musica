@@ -4,6 +4,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import model.Artista;
 import model.Musica;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -68,14 +69,16 @@ public class RecommendationManager {
 
     }
 
-    public void recommendArtistas(String artistanome){
+    public void recommendArtistas(Artista artista){
+        String nome = artista.getNome();
+
         try {
             HttpResponse<JsonNode> resposta = Unirest.get("https://ws.audioscrobbler.com/2.0/")
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
                     .queryString("method", "artist.getSimilar")
                     .queryString("limit", 2)
-                    .queryString("artist", artistanome)
+                    .queryString("artist", nome)
                     .queryString("format", "json")
                     .asJson();
 
@@ -89,10 +92,10 @@ public class RecommendationManager {
 
 
             for(int i = 0; i<similarArtists.length(); i++){
-                artistanome = similarArtists.getJSONObject(i).getString("name");
-                System.out.println(artistanome);
+                nome = similarArtists.getJSONObject(i).getString("name");
+                System.out.println(nome);
 
-                artistasRecomendados.add(artistanome);
+                artistasRecomendados.add(nome);
                 System.out.println(artistasRecomendados);
             }
 

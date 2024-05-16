@@ -9,6 +9,16 @@ public class UserDAO {
     public void createUser(User user){
         String SQL = "INSERT INTO USR (USERNAME, EMAIL, PASSWORD) VALUES (?, ?, ?)";
         String connect = "CREATE TABLE IF NOT EXISTS USR(ID INT PRIMARY KEY AUTO_INCREMENT, USERNAME VARCHAR(255), EMAIL VARCHAR(255), PASSWORD VARCHAR(255))";
+        String PlaylistInicializate =  "CREATE TABLE IF NOT EXISTS PLAYLIST(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), AUTOR VARCHAR(255), USERID INT, FOREIGN KEY (userId) REFERENCES USR(ID))";
+        String PlaylistMusicaInicializate = "CREATE TABLE IF NOT EXISTS PlaylistMusica ("
+                + "playlistId INT, "
+                + "musicaId INT, "
+                + "PRIMARY KEY (playlistId, musicaId), "
+                + "FOREIGN KEY (playlistId) REFERENCES Playlist(id), "
+                + "FOREIGN KEY (musicaId) REFERENCES Musica(id)"
+                + ")";
+        String MusicaInicializate = "CREATE TABLE IF NOT EXISTS MUSICA(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), ARTISTA VARCHAR(255), DURACAO DOUBLE)";
+
 
         try{
             Connection connection = ConnectionPoolConfig.getConnection();
@@ -16,6 +26,15 @@ public class UserDAO {
 
             PreparedStatement connectStatement = connection.prepareStatement(connect);
             connectStatement.executeUpdate();
+
+            PreparedStatement musicaStatement = connection.prepareStatement(MusicaInicializate);
+            musicaStatement.executeUpdate();
+
+            PreparedStatement playlistStatement = connection.prepareStatement(PlaylistInicializate);
+            playlistStatement.executeUpdate();
+
+            PreparedStatement playlistMusicaStatement = connection.prepareStatement(PlaylistMusicaInicializate);
+            playlistMusicaStatement.executeUpdate();
 
             connection.close();
 
