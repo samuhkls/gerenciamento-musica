@@ -96,6 +96,8 @@ public class RecommendationManager {
                 System.out.println(artistasRecomendados);
             }
 
+            System.out.println();
+
 
 
         }catch (UnirestException e) {
