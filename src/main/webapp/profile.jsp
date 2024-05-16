@@ -65,6 +65,16 @@
                      <span class="playlist-nome">${playlist.nomePLaylist}</span>
                      <span class="playlist-autor">Autor: ${playlist.autor}</span>
                      <span class="playlist-quantidade">Quantidade de musicas: ${playlist.quantidade}</span>
+
+                     <div class="musicas-container">
+                         <h3>Musicas:</h3>
+                         <c:forEach var="musica" items="${playlist.musicas}">
+                            <div class="musica-item-container">
+                                <span class="musica-nome">${musica.nome}</span>
+                                <span class="musica-artista">Artista: ${musica.artista}</span>
+                            </div>
+                         </c:forEach>
+                     </div>
                  </div>
              </c:forEach>
          </div>

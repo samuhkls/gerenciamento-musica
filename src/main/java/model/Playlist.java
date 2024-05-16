@@ -7,7 +7,7 @@ public class Playlist {
     private String nomePLaylist;
     private int quantidade;
     private String autor;
-    private final ArrayList<Musica> musicas;
+    private List<Musica> musicas;
     private int id;
 
     public int getId() {
@@ -47,8 +47,12 @@ public class Playlist {
         this.autor = autor;
     }
 
-    public ArrayList<Musica> getMusicas() {
+    public List<Musica> getMusicas() {
         return musicas;
+    }
+
+    public void setMusicas(List<Musica> musicas) {
+        this.musicas = musicas;
     }
 
     public void addMusica(Musica musica){
