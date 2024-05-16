@@ -20,10 +20,9 @@
             </div>
 
             <div class="nav-icons">
-                <img src="assets/home.png" alt=""> <a href="index.jsp">Inicio</a>
-                <img src="assets/diagrama.png" alt=""> <a href="">Explorar</a>
-                <img src="assets/comunidade.png" alt=""> <a href="">Comunidade</a>
-                <img src="assets/trending.png" alt=""> <a href="">Em alta</a>
+                <img src="assets/home.png" alt=""> <a href="/home">Inicio</a>
+                <img src="assets/comunidade.png" alt=""> <a href="/profile">Perfil</a>
+                <img src="assets/diagrama.png" alt=""> <a href="">Comunidade</a>
             </div>
             <div class="nav-search-box">
                 <form action="/create-musica" method="POST">
@@ -74,11 +73,12 @@
                        <form action="/add-musica" method="POST">
                            <input type="hidden" name="musicaId" value="${musica.id}">
                            <select name="playlistName">
+                           <option selected disabled>Selecione a playlist</option>
                                <c:forEach var="playlist" items="${playlists}">
                                    <option value="${playlist.nomePLaylist}">${playlist.nomePLaylist}</option>
                                </c:forEach>
                            </select>
-                           <button type="submit">Add Song to Playlist</button>
+                           <button type="submit">Adicionar</button>
                        </form>
                    </div>
                </c:forEach>
