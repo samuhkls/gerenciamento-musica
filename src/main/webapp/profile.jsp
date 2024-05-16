@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/profile.css?v=3.0">
+    <link rel="stylesheet" href="css/profile.css?v=7.0">
 </head>
 
 <body>
@@ -24,8 +24,10 @@
 
             <div class="nav-icons">
                 <img src="assets/home.png" alt=""> <a href="/home">Inicio</a>
-                <img src="assets/comunidade.png" alt=""> <a href="/profile">Perfil</a>
-                <img src="assets/diagrama.png" alt=""> <a href="">Comunidade</a>
+
+                <img src="assets/comunidade.png" alt=""> <a href="/comunnity">Comunidade</a>
+                <img src="assets/profile.png" alt=""> <a href="/profile">Meu Perfil</a>
+
             </div>
             <div class="nav-search-box">
                 <form action="/create-musica" method="POST">
@@ -50,32 +52,38 @@
 
     <div class="page-content">
          <div class="profile-container">
-            <h2>Meus dados</h2>
-            <p>ID: ${id}</p>
-            <p>Usuario: ${username}</p>
-            <p>Email: ${email}</p>
+            <img src="assets/profile-icon.png" class="profile-image">
+            <div class="profile-data">
+            <h2>${username}</h2>
+            <p>(${email})</p>
+            </div>
          </div>
 
          <div class="playlist-container">
-             <h2>Minhas Playlists</h2>
+             <h2 class="playlist-h2">Minhas Playlists</h2>
+             <hr>
+
 
              <c:forEach var="playlist" items="${playlists}">
+             <div class="wrap-playlist">
                  <div class="playlist-item-container">
-                     <span class="playlist-nome">${playlist.nomePLaylist}</span>
-                     <span class="playlist-autor">Autor: ${playlist.autor}</span>
-                     <span class="playlist-quantidade">Quantidade de musicas: ${playlist.quantidade}</span>
-
+                    <div class="playlist-nome-div">
+                     <span id="titulo-playlist" class="playlist-nome">${playlist.nomePLaylist}</span>
+                    </div>
+                     <span id="autor-playlist" class="playlist-autor">${playlist.autor} - </span>
+                     <span class="playlist-quantidade">${playlist.quantidade} musicas</span>
+                     <hr>
                      <div class="musicas-container">
-                         <h3>Musicas:</h3>
                          <c:forEach var="musica" items="${playlist.musicas}">
                             <div class="musica-item-container">
-                                <span class="musica-nome">${musica.nome}</span>
-                                <span class="musica-artista">Artista: ${musica.artista}</span>
+                                <span id="musica-nome-playlist" class="musica-nome">${musica.nome}</span>
+                                <span id="musica-artista-playlist" class="musica-artista">${musica.artista}</span>
                             </div>
                          </c:forEach>
                      </div>
-                 </div>
+               </div>
              </c:forEach>
+           </div>
          </div>
 
     </div>

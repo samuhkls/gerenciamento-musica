@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener | Home</title>
-    <link rel="stylesheet" href="css/home.css?v=5.0">
+    <link rel="stylesheet" href="css/home.css?v=6.0">
 </head>
 
 <body>
@@ -20,8 +20,9 @@
 
             <div class="nav-icons">
                 <img src="assets/home.png" alt=""> <a href="/home">Inicio</a>
-                <img src="assets/comunidade.png" alt=""> <a href="/profile">Perfil</a>
-                <img src="assets/diagrama.png" alt=""> <a href="">Comunidade</a>
+
+                <img src="assets/comunidade.png" alt=""> <a href="/comunnity">Comunidade</a>
+                <img src="assets/profile.png" alt=""> <a href="/profile">Meu Perfil</a>
 
             </div>
 

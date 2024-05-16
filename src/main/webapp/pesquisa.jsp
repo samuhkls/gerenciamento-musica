@@ -21,8 +21,10 @@
 
             <div class="nav-icons">
                 <img src="assets/home.png" alt=""> <a href="/home">Inicio</a>
-                <img src="assets/comunidade.png" alt=""> <a href="/profile">Perfil</a>
-                <img src="assets/diagrama.png" alt=""> <a href="">Comunidade</a>
+
+                <img src="assets/comunidade.png" alt=""> <a href="/comunnity">Comunidade</a>
+                <img src="assets/profile.png" alt=""> <a href="/profile">Meu Perfil</a>
+
             </div>
             <div class="nav-search-box">
                 <form action="/create-musica" method="POST">

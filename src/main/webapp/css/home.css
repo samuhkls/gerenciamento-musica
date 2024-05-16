@@ -32,10 +32,11 @@
 .nav-icons{
     margin-left: -18%;
     font-size: 17px;
-    width: 28%;
+    width: 20%;
     justify-content: space-around;
     display: flex;
     align-items: center;
+    gap: 18px;
 }
 
 form{
@@ -262,7 +263,7 @@ hr{
 }
 
 .item-image{
-    max-height: 40px;
-    max-width: 40px;
+    height: 45px;
+    width: 45px;
     padding-right: 10px;
 }
