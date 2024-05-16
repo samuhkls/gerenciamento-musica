@@ -77,6 +77,8 @@ public class PlaylistDAO  {
                 playlist.setNomePLaylist(resultSet.getString("NOME"));
                 playlist.setAutor(resultSet.getString("AUTOR"));
                 int qtd = getQuantidadeInPlaylist(playlist);
+                List<Musica> musicas = getMusicasInPlaylist(playlist);
+                playlist.setMusicas(musicas);
                 playlist.setQuantidade(qtd);
                 playlists.add(playlist);
             }
