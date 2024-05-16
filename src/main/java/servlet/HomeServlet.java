@@ -1,7 +1,9 @@
 package servlet;
 
+import model.Artista;
 import model.Musica;
 import model.User;
+import service.TrendingArtistGetter;
 import service.TrendingGetter;
 
 import javax.servlet.ServletException;
@@ -19,9 +21,16 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
+
         TrendingGetter getter = new TrendingGetter();
         List<Musica> trendingMusicas = getter.getTrending();
         request.setAttribute("musicas", trendingMusicas);
+
+        TrendingArtistGetter tgetter = new TrendingArtistGetter();
+        List<Artista> trendingArtistas = tgetter.getTrending();
+        request.setAttribute("artistas", trendingArtistas);
+
         request.getRequestDispatcher("/index.jsp").forward(request, resp);
-    }
-}
+
+    }}
+
