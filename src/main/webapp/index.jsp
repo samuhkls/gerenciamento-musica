@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener | Home</title>
-    <link rel="stylesheet" href="css/home.css?v=4.0">
+    <link rel="stylesheet" href="css/home.css?v=5.0">
 </head>
 
 <body>
@@ -80,19 +80,20 @@
 
          <div class="recommendations-container">
               <div class="recommendations-musics">
-
                     <div class="title-musics-container">
                       <h3>Musicas Recomendadas</h3>
                       <h4>Os As Musicas que mais se assemelham ao seus gostos.</h4>
                     </div>
 
-                    <div class="recommend-musics-container">
+                    <div class="top-musics-content">
                         <c:forEach var="recomendacoesAleatorias" items="${recomendacoesAleatorias}">
-                          <span class="item-nome">${musica.nome}</span>
-                          <span class="item-artista">${musica.artista}</span>
+                            <div class="musica-item-container">
+                              <img src="${recomendacoesAleatorias.imageURL}" class="item-image"></img>
+                              <span class="item-nome">${recomendacoesAleatorias.nome}</span>
+                              <span class="item-artista">${recomendacoesAleatorias.artista}</span>
+                            </div>
                         </c:forEach>
                     </div>
-
               </div>
 
               <div class="recommendations-artists">
@@ -100,7 +101,7 @@
                        <h3>Artistas Recomendados</h3>
                        <h4>Os Artistas que mais se assemelham ao seu gostos.</h4>
                      </div>
-               </div>
+              </div>
          </div>
 
          <footer class="footer-container">

@@ -1,10 +1,8 @@
 package service;
-
 import dao.PlaylistDAO;
 import model.Musica;
 import model.Playlist;
 import model.User;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

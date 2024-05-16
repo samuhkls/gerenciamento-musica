@@ -57,9 +57,9 @@ public class TrendingGetter {
 
                 System.out.println(tracknome + " - " + artistanome);
 
-                Musica musica = new Musica(tracknome, artistanome, imageURL);
+                Musica musica = new Musica(tracknome, artistanome);
+                musica.setImageURL(imageURL);
                 trendingMusicas.add(musica);
-
             }
 
             System.out.println(trendingMusicas);
