@@ -195,6 +195,36 @@ public class PlaylistDAO  {
         return qtd;
     }
 
+    public List<Musica> getMusicasPopulares() {
+        String SQL = "SELECT Musica.*, COUNT(*) as playlist_count " +
+                "FROM Musica " +
+                "JOIN PlaylistMusica ON Musica.id = PlaylistMusica.musicaId " +
+                "GROUP BY Musica.id " +
+                "ORDER BY playlist_count DESC";
+
+        List<Musica> musicas = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Musica musica = new Musica();
+                musica.setId(resultSet.getInt("id"));
+                musica.setNome(resultSet.getString("nome"));
+                musica.setArtista(resultSet.getString("artista"));
+                musica.setDuracao(resultSet.getDouble("duracao"));
+                musicas.add(musica);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return musicas;
+    }
+
     public void initializeDatabase() {
         String SQL = "CREATE TABLE IF NOT EXISTS PlaylistMusica ("
                 + "playlistId INT, "
