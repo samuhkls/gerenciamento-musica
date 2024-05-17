@@ -63,44 +63,44 @@
          </div>
 
          <div class="playlist-container">
-             <h2 class="playlist-h2">Minhas Playlists</h2>
-             <hr>
+            <h2 class="playlist-h2">Minhas Playlists</h2>
+            <hr>
 
 
              <c:forEach var="playlist" items="${playlists}">
-             <div class="wrap-playlist">
-                 <div class="playlist-item-container">
-                    <div class="playlist-nome-div">
-                     <span id="titulo-playlist" class="playlist-nome">${playlist.nomePLaylist}</span>
-                         <form action="/delete-playlist" method="POST">
-                            <input type="hidden" name="id" value="${playlist.id}">
-                            <button type="submit" class="delete-button"></button>
-                         </form>
-                    </div>
-                     <span id="autor-playlist" class="playlist-autor">${playlist.autor} - </span>
-                     <span class="playlist-quantidade">${playlist.quantidade} musicas</span>
-                     <hr>
+                 <div class="wrap-playlist">
+                     <div class="playlist-item-container">
+                        <div class="playlist-nome-div">
+                            <span id="titulo-playlist" class="playlist-nome">${playlist.nomePLaylist}</span>
+                             <form action="/delete-playlist" method="POST">
+                                <input type="hidden" name="id" value="${playlist.id}">
+                                <button type="submit" class="delete-button"></button>
+                             </form>
+                        </div>
+                         <span id="autor-playlist" class="playlist-autor">${playlist.autor} - </span>
+                         <span class="playlist-quantidade">${playlist.quantidade} musicas</span>
+                         <hr>
 
-                     <div class="musicas-container">
-                         <c:forEach var="musica" items="${playlist.musicas}">
-                            <div class="musica-item-container">
-                                <span id="musica-nome-playlist" class="musica-nome">${musica.nome}</span>
-                                <span id="musica-artista-playlist" class="musica-artista">${musica.artista}</span>
-                            </div>
-                         </c:forEach>
+                         <div class="musicas-container">
+                             <c:forEach var="musica" items="${playlist.musicas}">
+                                <div class="musica-item-container">
+                                    <span id="musica-nome-playlist" class="musica-nome">${musica.nome}</span>
+                                    <span id="musica-artista-playlist" class="musica-artista">${musica.artista}</span>
+                                </div>
+                             </c:forEach>
+                         </div>
+
+                         <div class="update-div">
+                             <form action="/update-playlist-name" method="POST">
+                                 <input type="hidden" name="playlistId" value="${playlist.id}">
+                                 <input type="text" name="newName" placeholder="Novo nome da playlist">
+                                 <button type="submit">Atualizar</button>
+                             </form>
+                         </div>
                      </div>
-
-                     <div class="update-div">
-                         <form action="/update-playlist-name" method="POST">
-                             <input type="hidden" name="playlistId" value="${playlist.id}">
-                             <input type="text" name="newName" placeholder="Novo nome da playlist">
-                             <button type="submit">Atualizar</button>
-                         </form>
-                     </div>
-
-               </div>
+                 </div>
              </c:forEach>
            </div>
          </div>
-
     </div>
+</body>

@@ -52,37 +52,46 @@
 
     <div class="page-content">
         <div class="popular-songs-container">
-            <h2>O que a galera mais anda escutando:</h2>
-            <table>
+            <div class="pl-title">
+                <h2 id="comunidade-playlist-title">O que a galera mais anda escutando</h2>
+            </div>
+            <table class="tabela-grafico">
                 <tr>
                     <th>Nome</th>
                     <th>Artista</th>
-                    <th>Playlists</th>
+                    <th>Quantidade</th>
                 </tr>
                  <c:forEach var="musica" items="${popularMusicas}">
                   <tr>
-                    <td>${musica.nome}</td>
-                    <td>${musica.artista}</td>
-                    <td>${musica.qtdPLaylists} playlists</td>
+                    <td id="musica-table">${musica.nome}</td>
+                    <td id="artista-table">${musica.artista}</td>
+                    <td id="qtd-table">${musica.qtdPLaylists} playlists</td>
                   </tr>
                   </c:forEach>
             </table>
         </div>
 
         <div class="all-playlists-container">
-            <h2>Explore todas as Playlists</h2>
-            <c:forEach var="playlist" items="${allPlaylists}">
-            <div class="playlist">
-                <h3>${playlist.nomePLaylist}</h3>
-                <p>Autor: ${playlist.autor}</p>
-                <p>Quantidade de musicas: ${playlist.quantidade}</p>
-                <ul>
-                    <c:forEach var="musica" items="${playlist.musicas}">
-                    <li>${musica.nome} por ${musica.artista}</li>
-                    </c:forEach>
-                </ul>
+            <div class="pl-title">
+            <h2 id="comunidade-playlist-title">Explore todas as Playlists</h2>
             </div>
-            </c:forEach>
+            <div  class="pl-wrap">
+                <c:forEach var="playlist" items="${allPlaylists}">
+                    <div class="playlist">
+                       <div class="playlist-item">
+                            <h3 id="titulo-playlist">${playlist.nomePLaylist}</h3>
+                            <div class="separa-autor-musica">
+                            <span id="autor-playlist">${playlist.autor}</span> <span id="playlist-quantidade">${playlist.quantidade} - musicas</span>
+                            </div>
+                            <hr>
+                            <c:forEach var="musica" items="${playlist.musicas}">
+                            <p id="musica-nome-playlist">${musica.nome}</p>
+                            <p id="musica-artista-playlist">${musica.artista}</p>
+                            </c:forEach>
+                       </div>
+                    </div>
+                </c:forEach>
+            </div>
         </div>
 
     </div>

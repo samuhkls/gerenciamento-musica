@@ -127,5 +127,97 @@ hr {
     margin-top: 12px;
 }
 
+#musica-artista-playlist {
+    font-weight: 300;
+}
+
+#musica-nome-playlist {
+    padding-top: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 2px;
+}
+
+#autor-playlist {
+    font-weight: bold;
+}
+
+#titulo-playlist {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+hr {
+    height: 0.5px;
+    background-color: #9D4CB1;
+    margin: 5px 0;
+}
+
+.playlist {
+    flex-wrap: wrap;
+    width: 26%;
+    border: 1px groove black;
+    margin-bottom: 12px;
+    border-radius: 2%;
+    margin-right: 30px;
+}
+
+.playlist h3, span, p {
+    padding-left: 5px;
+}
+
+.playlist-item{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.pl-title {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: #45274d;
+}
+
+.tabela-grafico {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.tabela-grafico th,
+.tabela-grafico td {
+    padding: 8px;
+}
+
+.tabela-grafico th{
+    color: #9D4CB1;
+}
+
+#musica-table{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+#artista-table{
+    font-weight: 300;
+}
+
+#qtd-table{
+
+}
+
+.separa-autor-musica{
+    display: flex;
+    gap: 5%;
+}
+
+.pl-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
 
 
