@@ -6,8 +6,21 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29,  #432b63, #30243e);
+	background: linear-gradient(to bottom, #33014a,  #57057d, #1e012b);
+	animation-name: fadeOut;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    background-color: black;
 }
+@keyframes fadeOut {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .main{
 	width: 350px;
 	height: 500px;
@@ -20,6 +33,8 @@ body{
 #chk{
 	display: none;
 }
+
+
 .signup{
 	position: relative;
 	width:100%;
@@ -54,7 +69,7 @@ button{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #00848d;
+	background: #af4ddb;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;

@@ -25,7 +25,8 @@
 			<div class="login">
 				<form action="/login" method = "post">
 
-				    <span>${requestScope.message}</span>
+
+                   <span>${requestScope.message}</span>
 
 					<label for="chk" aria-hidden="true">Log-in</label>
 					<input type="text" name="user-login" placeholder="Usuario" required="">
