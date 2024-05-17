@@ -146,3 +146,51 @@ hr{
     padding-left: 10px;
     cursor: pointer;
 }
+
+form {
+    display: flex;
+}
+
+#id-musica{
+    padding-left: 12px;
+    gap:12px;
+}
+
+span select{
+    margin-right: 12px;
+}
+
+.playlist-create{
+    width: 40%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    display: flex;
+    gap: 12px;
+}
+
+form input {
+    height: 25px;
+    width: 10vw;
+    padding-left: 12px;
+    padding-right: 30px;
+    border-radius: 6px;
+    border-width: 1px;
+    margin-right: 12px;
+}
+
+#botao-create {
+    cursor: pointer;
+    color: white;
+    background-color: #B518BB;
+}
+
+#title-pesquisa{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: #602F6D;
+}
+
+.create-container{
+    margin-bottom: 30px;
+}
