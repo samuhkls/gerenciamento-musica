@@ -65,15 +65,16 @@
                     </div>
                  </div>
              </hr>
-          <div class="faixas-container">
 
+          <div class="faixas-container">
               <form action="/lista-musicas" method="GET">
-               <c:forEach var="musica" items="${musicas}">
+                <c:forEach var="musica" items="${musicas}">
                    <div class="musica-item-container">
+
                        <span class="item-nome">${musica.nome}</span>
                        <span class="item-artista">${musica.artista}</span>
                        <span class="id-musica" id="id-musica">
-
+              </form>
                        <form action="/add-musica" method="POST">
                            <input type="hidden" name="musicaId" value="${musica.id}">
                            <select name="playlistName">
@@ -82,13 +83,14 @@
                                    <option value="${playlist.nomePLaylist}">${playlist.nomePLaylist}</option>
                                </c:forEach>
                            </select>
-                           <button id="botao-create" type="submit">Adicionar</button>
+                        <button id="botao-create" type="submit">Adicionar</button>
                        </form>
+
                    </div>
-               </c:forEach>
+                </c:forEach>
 
 
-               </form>
+
         </div>
 
 

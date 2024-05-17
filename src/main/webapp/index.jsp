@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener | Home</title>
-    <link rel="stylesheet" href="css/home.css?v=7.0">
+    <link rel="stylesheet" href="css/home.css?v=8.0">
 </head>
 
 <body>
@@ -69,8 +69,10 @@
               </div>
 
               <div class="top-artists">
-                    <h3>Artistas em Alta</h3>
+                   <div class="title-musics-container">
+                     <h3>Artistas em Alta</h3>
                      <h4>Os Artistas mais acessados em todo o mundo.</h4>
+                   </div>
                      <div class="top-musics-content">
                      <c:forEach var="artista" items="${artistas}">
                          <div class="musica-item-container">
@@ -86,7 +88,7 @@
               <div class="recommendations-musics">
                     <div class="title-musics-container">
                       <h3>Musicas Recomendadas</h3>
-                      <h4>Os As Musicas que mais se assemelham ao seus gostos.</h4>
+                      <h4>As Musicas que mais se assemelham ao seus gostos.</h4>
                     </div>
 
                     <div class="top-musics-content">
@@ -109,7 +111,7 @@
                         <c:forEach var="recomendacoesAleatoriasArtista" items="${recomendacoesAleatoriasArtista}">
                           <div class="musica-item-container">
 
-                            <img src="${artista.imageURL}" class="item-image"></img>
+                            <img src="https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png" class="item-image"></img>
                             <span class="item-artista">${recomendacoesAleatoriasArtista}</span>
                           </div>
                         </c:forEach>

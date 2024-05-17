@@ -193,8 +193,6 @@ hr{
     padding-bottom: 5px;
 }
 
-
-
 .top-musics-content {
     overflow-y: auto;
     max-height: 80%;
@@ -262,6 +260,8 @@ hr{
 .musica-container{
     padding-bottom: 20px;
 }
+
+
 
 .item-image{
     height: 45px;
