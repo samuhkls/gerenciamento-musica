@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/pesquisa.css?v=2.0">
+    <link rel="stylesheet" href="css/pesquisa.css?v=3.0">
 </head>
 
 <body>
@@ -48,22 +48,24 @@
          </div>
 
           <div class="page-content">
+                  <div class="create-container">
+                     <h1 id="title-pesquisa">Criar uma playlist</h1>
+                         <div class="playlist-create">
+                              <form action="/create-playlist" method="POST">
+                                  <input type="text" name="playlistName" placeholder="Digite o nome da playlist">
+                                  <button id="botao-create" type="submit">Criar playlist</button>
+                              </form>
+                         </div>
+                  </div>
                  <div class="art-container">
                     <div class="under-container">
                         <div class="musica-container">
-                            <h1>Pesquisar resultados</h1>
+                            <h1 id="title-pesquisa">Historico de resultados</h1>
                          </div>
                     </div>
                  </div>
              </hr>
           <div class="faixas-container">
-              <p class="faixas-subtitle">Faixas</p>
-
-              <form action="/create-playlist" method="POST">
-                  <input type="text" name="playlistName" placeholder="Digite o nome da playlist">
-                  <button type="submit">Criar playlist</button>
-              </form>
-
 
               <form action="/lista-musicas" method="GET">
                <c:forEach var="musica" items="${musicas}">
@@ -80,7 +82,7 @@
                                    <option value="${playlist.nomePLaylist}">${playlist.nomePLaylist}</option>
                                </c:forEach>
                            </select>
-                           <button type="submit">Adicionar</button>
+                           <button id="botao-create" type="submit">Adicionar</button>
                        </form>
                    </div>
                </c:forEach>
