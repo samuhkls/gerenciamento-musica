@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.nav-logo {
+    margin-left: 10%;
+}
+
+.nav-logo h1 {
+    color: #9D4CB1;
+}
+
+.nav-logo a {
+    text-decoration: none;
+}
+
+.navpane {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    margin-left: -50px;
+    width: 100%;
+}
+
+.navpane h1 {
+    position: relative;
+    top: 8px;
+}
+
+.nav-icons {
+    font-size: 17px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-left: 102px;
+}
+
+form {
+    display: flex;
+    width: 100%;
+}
+
+.nav-icons a {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-search-box {
+    display: flex;
+    align-items: center;
+    padding-left: 30%;
+}
+
+.nav-search-box input {
+    height: 30px;
+    width: 10vw;
+    padding-left: 12px;
+    padding-right: 30px;
+    border-radius: 6px;
+    border-width: 1px;
+}
+
+.nav-search-box button {
+    height: 30px;
+    width: 30px;
+    border-width: 1px;
+    border-radius: 6px;
+    background-image: url(../assets/search.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-search-box a {
+    text-decoration: none;
+}
+
+hr {
+    margin: 0;
+}
+
+.header-container {
+    padding-left: 19.5%;
+    display: flex;
+    justify-content: start;
+    color: white;
+    width: 100%;
+    height: 10vh;
+    background-color: #602F6D;
+}
+
+.title-container h1 {
+    margin: 0;
+    font-size: 27px;
+}
+
+.subtitle-container p {
+    padding-top: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.inside-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-content {
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
+.popular-songs-container {
+    margin-top: 12px;
+}
+
+
+

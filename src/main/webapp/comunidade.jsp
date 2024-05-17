@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/profile.css?v=7.0">
+    <link rel="stylesheet" href="css/comunidade.css?v=7.0">
 </head>
 
 <body>
@@ -38,59 +38,52 @@
 
         </div>
     </header>
-    <hr>
+
          <div class="header-container">
                 <div class="inside-container">
                     <div class="title-container">
-                        <h1>Ola, ${username}. Seja bem-vindo ao seu perfil!</h1>
+                        <h1>Seja bem vindo a nossa aba de comunidade!</h1>
                     </div>
                     <div class="subtitle-container">
-                        <p>Aproveite o nosso site, interaja, pesquise, faca amigos na comunidade, mergulhe na experiencia que a musica oferece.</p>
+                        <p>Explore nossa vibe comunitaria, compartilhe batidas, descubra talentos e faca parte do groove musical da galera!</p>
                     </div>
                 </div>
          </div>
 
     <div class="page-content">
-         <div class="profile-container">
-            <img src="assets/profile-icon.png" class="profile-image">
-            <div class="profile-data">
-            <h2>${username}</h2>
-            <p>(${email})</p>
-            </div>
-         </div>
-    </div>
-
-    <div class="popular-songs-container">
-        <h2>Musicas mais populares entre os usuarios</h2>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Artista</th>
-                <th>Playlists</th>
-            </tr>
-             <c:forEach var="musica" items="${popularMusicas}">
-              <tr>
-                <td>${musica.nome}</td>
-                <td>${musica.artista}</td>
-                <td>${musica.qtdPLaylists} playlists</td>
-              </tr>
-              </c:forEach>
-        </table>
-    </div>
-
-    <div class="all-playlists-container">
-        <h2>Explore todas as Playlists</h2>
-        <c:forEach var="playlist" items="${allPlaylists}">
-        <div class="playlist">
-            <h3>${playlist.nomePLaylist}</h3>
-            <p>Autor: ${playlist.autor}</p>
-            <p>Quantidade de musicas: ${playlist.quantidade}</p>
-            <ul>
-                <c:forEach var="musica" items="${playlist.musicas}">
-                <li>${musica.nome} por ${musica.artista}</li>
-                </c:forEach>
-            </ul>
+        <div class="popular-songs-container">
+            <h2>O que a galera mais anda escutando:</h2>
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Artista</th>
+                    <th>Playlists</th>
+                </tr>
+                 <c:forEach var="musica" items="${popularMusicas}">
+                  <tr>
+                    <td>${musica.nome}</td>
+                    <td>${musica.artista}</td>
+                    <td>${musica.qtdPLaylists} playlists</td>
+                  </tr>
+                  </c:forEach>
+            </table>
         </div>
-        </c:forEach>
+
+        <div class="all-playlists-container">
+            <h2>Explore todas as Playlists</h2>
+            <c:forEach var="playlist" items="${allPlaylists}">
+            <div class="playlist">
+                <h3>${playlist.nomePLaylist}</h3>
+                <p>Autor: ${playlist.autor}</p>
+                <p>Quantidade de musicas: ${playlist.quantidade}</p>
+                <ul>
+                    <c:forEach var="musica" items="${playlist.musicas}">
+                    <li>${musica.nome} por ${musica.artista}</li>
+                    </c:forEach>
+                </ul>
+            </div>
+            </c:forEach>
+        </div>
+
     </div>
 </body>
