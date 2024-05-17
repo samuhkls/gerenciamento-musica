@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/comunidade.css?v=7.0">
+    <link rel="stylesheet" href="css/comunidade.css?v=8.0">
 </head>
 
 <body>

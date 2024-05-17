@@ -153,8 +153,8 @@ hr {
 
 .playlist-nome-div {
     display: flex;
-    gap: 60%;
-    align-items: center;
+    gap: 70%;
+    align-items: baseline;
 }
 
 .musica-item-container {
@@ -185,11 +185,20 @@ hr {
 .wrap-playlist {
     display: flex;
     flex-direction: column;
+    width: 25%
 }
 
 .playlist-item-container {
-    margin-bottom: 20px;
-    max-width: 26%;
+    flex-wrap: wrap;
+    width: auto;
+    border: 1px groove black;
+    margin-bottom: 12px;
+    border-radius: 2%;
+    margin-right: 30px;
+}
+
+.playlist-item-container p, span, h3{
+    padding-left: 5px;
 }
 
 hr {
@@ -228,9 +237,11 @@ hr {
     margin: 0;
 }
 
-form{
-    gap: 12px;
+form {
+    display: flex;
+    justify-content: space-between;
 }
+
 .update-div {
     margin-top: 12px;
 }
@@ -253,4 +264,9 @@ form{
     padding-right: 30px;
     border-radius: 6px;
     border-width: 1px;
+}
+
+.pl-wrap {
+    display: flex;
+    flex-wrap: wrap;
 }
