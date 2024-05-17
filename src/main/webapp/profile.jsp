@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/profile.css?v=7.0">
+    <link rel="stylesheet" href="css/profile.css?v=8.0">
 </head>
 
 <body>
@@ -36,9 +36,12 @@
                 </form>
             </div>
 
+             <div class="logout-div">
+                    <a id="logout" href="${pageContext.request.contextPath}/logout">Logout</a>
+             </div>
+
         </div>
     </header>
-    <hr>
          <div class="header-container">
                 <div class="inside-container">
                     <div class="title-container">
