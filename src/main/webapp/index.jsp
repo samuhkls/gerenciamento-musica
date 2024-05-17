@@ -35,7 +35,7 @@
 
         </div>
     </header>
-    <hr>
+
 
     <div class="header-container">
         <div class="inside-container">

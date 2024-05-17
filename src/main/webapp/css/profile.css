@@ -1,65 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
-*{
-    margin: 0px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Space Grotesk', sans-serif;
 }
 
-.nav-logo{
+body {
+    overflow-x: hidden;
+}
+
+.nav-logo {
     margin-left: 10%;
 }
 
-.nav-logo h1{
+.nav-logo h1 {
     color: #9D4CB1;
 }
 
-.nav-logo a{
+.nav-logo a {
     text-decoration: none;
 }
 
-.navpane{
+.navpane {
     display: flex;
     justify-content: space-between;
     height: 60px;
     margin-left: -50px;
+    width: 100%;
 }
 
-.navpane h1{
+.navpane h1 {
     position: relative;
     top: 8px;
 }
 
-.nav-icons{
-    margin-left: -18%;
+.nav-icons {
     font-size: 17px;
-    width: 20%;
     justify-content: space-around;
     display: flex;
     align-items: center;
     gap: 18px;
+    padding-left: 102px;
 }
 
-form{
+form {
     display: flex;
-    width 100%
+    width: 100%;
 }
 
-.nav-icons a{
+.nav-icons a {
     color: black;
     text-decoration: none;
 }
 
-.nav-search-box{
+.nav-search-box {
     display: flex;
-    width: 30%;
-    display: flex;
-    margin-left: 5%;
-    justify-content: space-around;
     align-items: center;
+    padding-left: 30%;
 }
 
-.nav-search-box input{
-    height: 26px;
+.nav-search-box input {
+    height: 30px;
     width: 10vw;
     padding-left: 12px;
     padding-right: 30px;
@@ -67,26 +70,28 @@ form{
     border-width: 1px;
 }
 
-.nav-search-box button{
-    width: 100%;
+.nav-search-box button {
+    height: 30px;
+    width: 30px;
     border-width: 1px;
-    border-radius: 1px;
-    background-image: url('../assets/search.png');
-    background-size: contain;
+    border-radius: 6px;
+    background-image: url(../assets/search.png);
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
-    padding-left: 1px;
+    padding: 0;
 }
 
-.nav-search-box a{
+.nav-search-box a {
     text-decoration: none;
 }
 
-hr{
-    margin: 0px;
+hr {
+    margin: 0;
 }
 
-.header-container{
+.header-container {
     padding-left: 19.5%;
     display: flex;
     justify-content: start;
@@ -96,12 +101,12 @@ hr{
     background-color: #602F6D;
 }
 
-.title-container h1{
-    margin: 0px;
+.title-container h1 {
+    margin: 0;
     font-size: 27px;
 }
 
-.subtitle-container p{
+.subtitle-container p {
     padding-top: 5px;
     font-size: 15px;
     font-weight: 500;
@@ -118,14 +123,14 @@ hr{
     margin-right: 18%;
 }
 
-.profile-container{
+.profile-container {
     height: 16vh;
     background-color: #383E3E;
     padding: 20px;
     display: flex;
 }
 
-.profile-image{
+.profile-image {
     width: auto;
     height: 90%;
     padding-right: 10px;
@@ -146,32 +151,32 @@ hr{
     color: #9D4CB1;
 }
 
-.musica-item-container{
+.musica-item-container {
     display: flex;
     flex-direction: column;
 }
 
-#musica-artista-playlist{
+#musica-artista-playlist {
     font-weight: 300;
 }
 
-#musica-nome-playlist{
+#musica-nome-playlist {
     padding-top: 6px;
     font-size: 18px;
     font-weight: 500;
     padding-bottom: 2px;
 }
 
-#autor-playlist{
+#autor-playlist {
     font-weight: bold;
 }
 
-#titulo-playlist{
+#titulo-playlist {
     font-size: 22px;
     font-weight: 700;
 }
 
-.wrap-playlist{
+.wrap-playlist {
     display: flex;
     flex-direction: column;
 }
@@ -183,7 +188,7 @@ hr{
 
 hr {
     height: 0.5px;
-    background-color: #9D4CB1s;
+    background-color: #9D4CB1;
     margin: 5px 0;
 }
 
@@ -194,4 +199,14 @@ hr {
 
 #musica-nome-playlist, #musica-artista-playlist {
     margin-right: 10px;
+}
+
+.logout-div {
+    display: flex;
+    align-items: center;
+    padding-left: 200px;
+}
+
+#logout {
+    color: gray;
 }
