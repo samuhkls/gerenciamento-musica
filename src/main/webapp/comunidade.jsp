@@ -58,32 +58,24 @@
             <p>(${email})</p>
             </div>
          </div>
-
-         <div class="playlist-container">
-             <h2 class="playlist-h2">Minhas Playlists</h2>
-             <hr>
-
-
-             <c:forEach var="playlist" items="${playlists}">
-             <div class="wrap-playlist">
-                 <div class="playlist-item-container">
-                    <div class="playlist-nome-div">
-                     <span id="titulo-playlist" class="playlist-nome">${playlist.nomePLaylist}</span>
-                    </div>
-                     <span id="autor-playlist" class="playlist-autor">${playlist.autor} - </span>
-                     <span class="playlist-quantidade">${playlist.quantidade} musicas</span>
-                     <hr>
-                     <div class="musicas-container">
-                         <c:forEach var="musica" items="${playlist.musicas}">
-                            <div class="musica-item-container">
-                                <span id="musica-nome-playlist" class="musica-nome">${musica.nome}</span>
-                                <span id="musica-artista-playlist" class="musica-artista">${musica.artista}</span>
-                            </div>
-                         </c:forEach>
-                     </div>
-               </div>
-             </c:forEach>
-           </div>
-         </div>
-
     </div>
+
+    <div class="popular-songs-container">
+        <h2>Most Popular Songs</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Artist</th>
+                <th>Duration</th>
+            </tr>
+             <c:forEach var="musica" items="${popularMusicas}">
+              <tr>
+                <td>${musica.nome}</td>
+                <td>${musica.artista}</td>
+                <td>${musica.duracao}</td>
+                 <td>${musica.qtdPLaylists} playlists</td>
+              </tr>
+              </c:forEach>
+        </table>
+    </div>
+</body>

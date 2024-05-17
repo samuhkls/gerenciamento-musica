@@ -6,6 +6,15 @@ public class Musica {
     private double duracao;
     private String imageURL;
     private int id;
+    private int qtdPLaylists;
+
+    public int getQtdPLaylists() {
+        return qtdPLaylists;
+    }
+
+    public void setQtdPLaylists(int qtdPLaylists) {
+        this.qtdPLaylists = qtdPLaylists;
+    }
 
     public int getId() {
         return id;
