@@ -64,16 +64,15 @@
         <h2>Most Popular Songs</h2>
         <table>
             <tr>
-                <th>Name</th>
-                <th>Artist</th>
-                <th>Duration</th>
+                <th>Nome</th>
+                <th>Artista</th>
+                <th>Playlists</th>
             </tr>
              <c:forEach var="musica" items="${popularMusicas}">
               <tr>
                 <td>${musica.nome}</td>
                 <td>${musica.artista}</td>
-                <td>${musica.duracao}</td>
-                 <td>${musica.qtdPLaylists} playlists</td>
+                <td>${musica.qtdPLaylists} playlists</td>
               </tr>
               </c:forEach>
         </table>

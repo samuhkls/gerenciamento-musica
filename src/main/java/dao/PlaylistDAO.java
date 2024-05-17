@@ -216,6 +216,7 @@ public class PlaylistDAO  {
                 musica.setNome(resultSet.getString("NOME"));
                 musica.setArtista(resultSet.getString("ARTISTA"));
                 musica.setQtdPLaylists(resultSet.getInt("playlist_count"));
+                musica.setDuracao(resultSet.getDouble("DURACAO"));
                 musicas.add(musica);
             }
 
