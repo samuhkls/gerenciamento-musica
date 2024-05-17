@@ -2,6 +2,7 @@ package servlet;
 
 import dao.PlaylistDAO;
 import model.Musica;
+import model.Playlist;
 import model.User;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,9 @@ public class ComunidadeServlet extends HttpServlet {
 
         List<Musica> popularMusicas = new PlaylistDAO().getMostPopularMusicas();
         request.setAttribute("popularMusicas", popularMusicas);
+
+        List<Playlist> allPlaylists = new PlaylistDAO().getAllPlaylists();
+        request.setAttribute("allPlaylists", allPlaylists);
 
         request.getRequestDispatcher("comunidade.jsp").forward(request, response);
     }

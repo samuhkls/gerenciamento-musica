@@ -61,7 +61,7 @@
     </div>
 
     <div class="popular-songs-container">
-        <h2>Most Popular Songs</h2>
+        <h2>Musicas mais populares entre os usuarios</h2>
         <table>
             <tr>
                 <th>Nome</th>
@@ -76,5 +76,21 @@
               </tr>
               </c:forEach>
         </table>
+    </div>
+
+    <div class="all-playlists-container">
+        <h2>Explore todas as Playlists</h2>
+        <c:forEach var="playlist" items="${allPlaylists}">
+        <div class="playlist">
+            <h3>${playlist.nomePLaylist}</h3>
+            <p>Autor: ${playlist.autor}</p>
+            <p>Quantidade de musicas: ${playlist.quantidade}</p>
+            <ul>
+                <c:forEach var="musica" items="${playlist.musicas}">
+                <li>${musica.nome} por ${musica.artista}</li>
+                </c:forEach>
+            </ul>
+        </div>
+        </c:forEach>
     </div>
 </body>

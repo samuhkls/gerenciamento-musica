@@ -163,7 +163,6 @@ public class PlaylistDAO  {
                 playlist.setId(resultSet.getInt("id"));
                 playlist.setNomePLaylist(resultSet.getString("nome"));
                 playlist.setAutor(resultSet.getString("autor"));
-                // You might also want to retrieve the list of songs in the playlist here
             }
 
         } catch (SQLException e) {
@@ -225,6 +224,34 @@ public class PlaylistDAO  {
         }
 
         return musicas;
+    }
+
+    public List<Playlist> getAllPlaylists() {
+        String SQL = "SELECT * FROM Playlist";
+        List<Playlist> playlists = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Playlist playlist = new Playlist();
+                playlist.setId(resultSet.getInt("ID"));
+                playlist.setNomePLaylist(resultSet.getString("NOME"));
+                playlist.setAutor(resultSet.getString("AUTOR"));
+                int qtd = getQuantidadeInPlaylist(playlist);
+                List<Musica> musicas = getMusicasInPlaylist(playlist);
+                playlist.setMusicas(musicas);
+                playlist.setQuantidade(qtd);
+                playlists.add(playlist);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return playlists;
     }
 
     public void initializeDatabase() {
