@@ -243,6 +243,7 @@ hr{
     display: flex;
     padding: 8px;
     border-bottom: 1.5px groove;
+    align-items: center;
 }
 
 .item-nome{

@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener | Home</title>
-    <link rel="stylesheet" href="css/home.css?v=6.0">
+    <link rel="stylesheet" href="css/home.css?v=7.0">
 </head>
 
 <body>
@@ -75,7 +75,6 @@
                      <c:forEach var="artista" items="${artistas}">
                          <div class="musica-item-container">
                              <img src="${artista.imageURL}" class="item-image"></img>
-                              <span class="item-nome">${artista.nome}</span>
                               <span class="item-artista">${artista.artista}</span>
                          </div>
                     </c:forEach>
@@ -110,7 +109,7 @@
                         <c:forEach var="recomendacoesAleatoriasArtista" items="${recomendacoesAleatoriasArtista}">
                           <div class="musica-item-container">
 
-                            <span class="item-nome">${recomendacoesAleatoriasArtista}</span>
+                            <img src="${artista.imageURL}" class="item-image"></img>
                             <span class="item-artista">${recomendacoesAleatoriasArtista}</span>
                           </div>
                         </c:forEach>

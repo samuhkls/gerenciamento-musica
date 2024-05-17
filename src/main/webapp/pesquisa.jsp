@@ -39,7 +39,7 @@
          <div class="header-container">
                 <div class="inside-container">
                     <div class="title-container">
-                        <h1>Resultados similares a <%= request.getParameter("musica") %></h1>
+                        <h1>Resultados similares a sua pesquisa</h1>
                     </div>
                     <div class="subtitle-container">
                         <p>Aproveite a selecao de artistas e musicas</p>
