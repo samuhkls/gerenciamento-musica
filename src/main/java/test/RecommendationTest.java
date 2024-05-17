@@ -14,27 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/recommend")
-public class RecommendationTest extends HttpServlet {
+
+public class RecommendationTest {
 
     public static void main(String[] args) {
+        RecommendationManager manager = new RecommendationManager();
 
+        manager.recommendArtistas("nirvana");
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User loggedUser = (User) request.getSession().getAttribute("loggedUser");
 
-
-        // Create a RandomRecommendationManager
-        Randomizer manager = new Randomizer();
-
-        // Get random recommendations
-        List<Musica> recommendations = manager.getRandomRecommendations(loggedUser, 1);
-
-        // Print the recommendations
-        for (Musica musica : recommendations) {
-            System.out.println(musica.getNome() + " by " + musica.getArtista());
-        }
-    }
 }

@@ -36,7 +36,6 @@ public class TrendingGetter {
                     .asJson();
 
             JSONObject jsonResposta = new JSONObject(resposta.getBody());
-            System.out.println(jsonResposta);
             JSONArray trendingList = jsonResposta.getJSONObject("object").getJSONObject("tracks").getJSONArray("track");
 
             String tracknome;
@@ -48,21 +47,17 @@ public class TrendingGetter {
 
             for(int i = 0; i< trendingList.length(); i++){
                 tracknome = trendingList.getJSONObject(i).getString("name");
-                //System.out.println(tracknome);
                 artistanome = trendingList.getJSONObject(i).getJSONObject("artist")
                         .getString("name");
 
                 imageURL = getter.getImage(tracknome, artistanome);
-                System.out.println(imageURL);
 
-                System.out.println(tracknome + " - " + artistanome);
 
                 Musica musica = new Musica(tracknome, artistanome);
                 musica.setImageURL(imageURL);
                 trendingMusicas.add(musica);
             }
 
-            System.out.println(trendingMusicas);
             return trendingMusicas;
         }catch (UnirestException e) {
             e.printStackTrace();

@@ -45,4 +45,29 @@ public class Randomizer extends RecommendationManager{
 
         return recomendacoes;
     }
+    public List<String> getRandomArtistRecommendations(User user, int qtd) {
+        PlaylistDAO playlistDAO = new PlaylistDAO();
+
+        List<Playlist> playlists = playlistDAO.getPlaylistsByUser(user);
+
+        List<String> recomendacoes = new ArrayList<>();
+
+        for (Playlist playlist : playlists) {
+            List<Musica> playlistMusicas = playlistDAO.getMusicasInPlaylist(playlist);
+
+            Collections.shuffle(playlistMusicas);
+
+            List<Musica> musicasSelect = playlistMusicas.subList(0, Math.min(qtd, playlistMusicas.size()));
+
+            for (Musica musica : musicasSelect) {
+                String artista = musica.getArtista();
+                List<String> artistRecommendations = recommendArtistas(artista);
+                recomendacoes.addAll(artistRecommendations);
+            }
+        }
+
+        Collections.shuffle(recomendacoes);
+
+        return recomendacoes;
+    }
 }

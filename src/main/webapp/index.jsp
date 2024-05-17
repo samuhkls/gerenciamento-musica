@@ -109,9 +109,9 @@
                      <div class="top-musics-content">
                         <c:forEach var="recomendacoesAleatoriasArtista" items="${recomendacoesAleatoriasArtista}">
                           <div class="musica-item-container">
-                            <img src="${recomendacoesAleatoriasArtista.imageURL}" class="item-image"></img>
-                            <span class="item-nome">${recomendacoesAleatoriasArtista.nome}</span>
-                            <span class="item-artista">${recomendacoesAleatoriasArtista.artista}</span>
+
+                            <span class="item-nome">${recomendacoesAleatoriasArtista}</span>
+                            <span class="item-artista">${recomendacoesAleatoriasArtista}</span>
                           </div>
                         </c:forEach>
                      </div>
