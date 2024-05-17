@@ -84,6 +84,17 @@
                             </div>
                          </c:forEach>
                      </div>
+                     <form action="/delete-playlist" method="POST">
+                         <input type="hidden" name="id" value="${playlist.id}">
+                         <button type="submit">Excluir Playlist</button>
+                     </form>
+
+                     <form action="/update-playlist-name" method="POST">
+                         <input type="hidden" name="playlistId" value="${playlist.id}">
+                         <input type="text" name="newName" placeholder="Novo nome da playlist">
+                         <button type="submit">Atualizar Nome da Playlist</button>
+                     </form>
+
                </div>
              </c:forEach>
            </div>

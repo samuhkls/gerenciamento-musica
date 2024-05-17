@@ -245,5 +245,66 @@ public class PlaylistDAO  {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean deletePlaylist(String playlistId) {
+        String sql = "DELETE FROM PLAYLIST WHERE ID = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            // Definir o valor do parâmetro
+            pstmt.setString(1, playlistId);
+
+            // Executar a instrução SQL DELETE
+            int affectedRows = pstmt.executeUpdate();
+
+            // Se uma linha foi afetada, então a exclusão foi bem-sucedida
+            return affectedRows == 1;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    public Playlist findById(int id) {
+        Playlist playlist = null;
+        String sql = "SELECT * FROM PLAYLIST WHERE ID = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                playlist = new Playlist();
+                playlist.setId(rs.getInt("id"));
+                playlist.setNomePLaylist(rs.getString("nomePlaylist"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return playlist;
+    }
+
+    public void updatePlaylistName(Playlist playlist) {
+        String sql = "UPDATE PLAYLIST SET NOME = ? WHERE ID = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, playlist.getNomePLaylist());
+            stmt.setInt(2, playlist.getId());
+
+            int rowsUpdated = stmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("A playlist foi atualizada com sucesso.");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
+
+
 
