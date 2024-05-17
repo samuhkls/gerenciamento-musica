@@ -47,7 +47,7 @@ body {
 
 form {
     display: flex;
-    width: 100%;
+    justify-content: space-between;
 }
 
 .nav-icons a {
@@ -154,7 +154,6 @@ hr {
 }
 
 .playlist {
-    flex-wrap: wrap;
     width: 26%;
     border: 1px groove black;
     margin-bottom: 12px;
@@ -162,8 +161,8 @@ hr {
     margin-right: 30px;
 }
 
-.playlist h3, span, p {
-    padding-left: 5px;
+.playlist h3, span, p, input {
+    margin-left: 5px;
 }
 
 .playlist-item{
