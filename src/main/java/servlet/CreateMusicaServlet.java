@@ -29,8 +29,6 @@ public class CreateMusicaServlet extends HttpServlet{
 
             Musica musica = search.pesquisar(musicanome);
 
-            System.out.println("Nome da musica: " + musica.getNome());
-            System.out.println("Nome do artista: " + musica.getArtista());
 
             new musicaDAO().createMusica(musica);
 

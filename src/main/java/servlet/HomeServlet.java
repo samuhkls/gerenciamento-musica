@@ -30,14 +30,14 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("artistas", trendingArtistas);
 
         Randomizer randomizer = new Randomizer();
-        int quantidadeRecomendacoes = 2;
+        int quantidadeRecomendacoes = 1;
         List<Musica> recomendacoesAleatorias = randomizer.getRandomRecommendations(loggedUser, quantidadeRecomendacoes);
         request.setAttribute("recomendacoesAleatorias", recomendacoesAleatorias);
 
-//        RandomizerArtist randomizerArtist = new RandomizerArtist();
-//        int quantidadeRecomendacoesArtista = 2;
-//        List<Artista> recomendacoesAleatoriasArtista = randomizerArtist.getRandomRecommendations(loggedUser, quantidadeRecomendacoesArtista);
-//        request.setAttribute("recomendacoesAleatoriasArtista", recomendacoesAleatoriasArtista);
+
+        int quantidadeRecomendacoesArtista = 2;
+        List<String> recomendacoesAleatoriasArtista = randomizer.getRandomArtistRecommendations(loggedUser, quantidadeRecomendacoesArtista);
+        request.setAttribute("recomendacoesAleatoriasArtista", recomendacoesAleatoriasArtista);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, resp);

@@ -31,13 +31,8 @@ public class ListMusicaServlet extends HttpServlet {
         List<Playlist> playlists = new PlaylistDAO().getPlaylistsByUser(loggedUser);
         request.setAttribute("playlists", playlists);
 
-        String teste;
-
-        teste = musicas.get(1).getNome();
 
         request.getRequestDispatcher("pesquisa.jsp").forward(request, response);
-
-        System.out.println(musicas.get(1).getNome());
 
         }
 
@@ -50,9 +45,6 @@ public class ListMusicaServlet extends HttpServlet {
 
         play.addMusica(musica);
 
-        for (int i = 0; i < play.getMusicas().size(); i++){
-            System.out.println(play.getMusicas().get(i));
-        }
     }
 
     }

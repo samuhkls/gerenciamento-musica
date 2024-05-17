@@ -49,11 +49,8 @@ public class SearchTrack {
             JSONObject track = trackObject.getJSONObject(0); // acessando o primeiro index, que é o primeiro resultado
 
             trackNome = track.getString("name");  // o nome é um atributo do objeto musica
-            System.out.println("Nome da musica: " + trackNome);
 
             artistaNome = track.getString("artist"); // o nome do artista tambem é um atributo do objeto musica
-            System.out.println("Nome do artista: " + artistaNome);
-
             trackDuracao = getDuracao(trackNome, artistaNome);
 
 
@@ -80,8 +77,6 @@ public class SearchTrack {
                 .asJson();
 
         JSONObject jsonResposta = new JSONObject(resposta.getBody()); // objeto json que recebe as informações da request
-
-        System.out.println(jsonResposta);
 
         // o objeto track fica dentro de "object" entao primeiro precisamos acessar o object
         JSONObject trackObject = jsonResposta.getJSONObject("object").getJSONObject("track");

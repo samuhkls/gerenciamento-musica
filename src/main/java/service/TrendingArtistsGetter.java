@@ -35,13 +35,7 @@ public class TrendingArtistsGetter {
                     .asJson();
 
 
-
-            String tracknome;
-            String artistanome;
-            String imageURL;
-
             List<Artista> trendingArtistas = new ArrayList<>();
-            ImageGetter getter = new ImageGetter();
 
             JSONObject jsonResposta = new JSONObject(resposta.getBody());
             JSONArray jsonArray = jsonResposta.getJSONArray("array");
@@ -51,13 +45,12 @@ public class TrendingArtistsGetter {
 
             for(int i = 0; i< artistArray.length(); i++){
                 String artistName = artistArray.getJSONObject(i).getString("name");
-                System.out.println(artistName);
 
                 Artista artista = new Artista(artistName);
+                artista.setImageURL("https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png");
                 trendingArtistas.add(artista);
             }
 
-            System.out.println(trendingArtistas);
             return trendingArtistas;
         }catch (UnirestException e) {
             e.printStackTrace();

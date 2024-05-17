@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class RecommendationManager {
     String API_KEY = "43fce9a2d0129c54d3c32cc47389254b";
@@ -43,22 +44,27 @@ public class RecommendationManager {
             JSONArray recommendList = jsonResposta.getJSONObject("object").getJSONObject("similartracks").getJSONArray("track");
 
             List<Musica> musicasRecomendadas = new ArrayList<>();
+            ImageGetter getter = new ImageGetter();
 
 
             for(int i = 0; i< recommendList.length(); i++) {
                 tracknome = recommendList.getJSONObject(i).getString("name");
-                System.out.println(tracknome);
+
                 artistanome = recommendList.getJSONObject(i).getJSONObject("artist")
                         .getString("name");
-                System.out.println(artistanome);
 
-                System.out.println(tracknome + " - " + artistanome);
+
+                String imageURL = getter.getImage(tracknome, artistanome);
+
 
                 musica = new Musica(tracknome, artistanome);
-                musicasRecomendadas.add(musica);
+                musica.setImageURL(imageURL);
+                if(!musicasRecomendadas.contains(musica)){
+                    musicasRecomendadas.add(musica);
+                }
+
 
             }
-            System.out.println(musicasRecomendadas);
             return musicasRecomendadas;
 
 
@@ -68,43 +74,36 @@ public class RecommendationManager {
         }
 
     }
-
-    public void recommendArtistas(Artista artista){
-        String nome = artista.getNome();
-
+    public List<String> recommendArtistas(String artistanome) {
+        List<String> artistasrecomendados = new ArrayList<>();
+        String artista;
         try {
             HttpResponse<JsonNode> resposta = Unirest.get("https://ws.audioscrobbler.com/2.0/")
                     .header("user-agent", USER_AGENT)
                     .queryString("api_key", API_KEY) // parametros para a formação da url, antes de mandar a request
                     .queryString("method", "artist.getSimilar")
-                    .queryString("limit", 2)
-                    .queryString("artist", nome)
+                    .queryString("limit", 19)
+                    .queryString("artist", artistanome)
                     .queryString("format", "json")
                     .asJson();
 
             JSONObject jsonResposta = new JSONObject(resposta.getBody());
-            System.out.println(jsonResposta);
-
-            JSONArray similarArtists = jsonResposta.getJSONObject("object")
-                    .getJSONObject("similarartists").getJSONArray("artist");
-
-            List<String> artistasRecomendados = new ArrayList<>();
+            JSONArray recommendList = jsonResposta.getJSONObject("object").getJSONObject("similarartists").getJSONArray("artist");;
 
 
-            for(int i = 0; i<similarArtists.length(); i++){
-                nome = similarArtists.getJSONObject(i).getString("name");
-                System.out.println(nome);
+            for(int i = 0; i< recommendList.length(); i++) {
+                artista = recommendList.getJSONObject(i).getString("name");
 
-                artistasRecomendados.add(nome);
-                System.out.println(artistasRecomendados);
+                artistasrecomendados.add(artista);
+
             }
 
-            System.out.println();
 
-
-
-        }catch (UnirestException e) {
+        } catch (UnirestException e) {
             e.printStackTrace();
+            return Collections.emptyList();
         }
+        return artistasrecomendados;
     }
+
 }

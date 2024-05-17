@@ -103,9 +103,6 @@ public class PlaylistDAO  {
 
             preparedStatement.executeUpdate();
 
-            System.out.println("musica sendo add no banco");
-            System.out.println(playlist.getMusicas());
-            System.out.println(musica.getNome());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

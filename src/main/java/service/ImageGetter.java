@@ -39,7 +39,7 @@ public class ImageGetter {
                         .getJSONObject("album").getJSONArray("image")
                         .getJSONObject(0).getString("#text");
             }catch (Exception e){
-                return "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png";
+                return "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"; // imagem generica
             }
 
             return imageURL;
