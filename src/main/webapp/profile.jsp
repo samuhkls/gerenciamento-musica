@@ -72,10 +72,15 @@
                  <div class="playlist-item-container">
                     <div class="playlist-nome-div">
                      <span id="titulo-playlist" class="playlist-nome">${playlist.nomePLaylist}</span>
+                         <form action="/delete-playlist" method="POST">
+                            <input type="hidden" name="id" value="${playlist.id}">
+                            <button type="submit" class="delete-button"></button>
+                         </form>
                     </div>
                      <span id="autor-playlist" class="playlist-autor">${playlist.autor} - </span>
                      <span class="playlist-quantidade">${playlist.quantidade} musicas</span>
                      <hr>
+
                      <div class="musicas-container">
                          <c:forEach var="musica" items="${playlist.musicas}">
                             <div class="musica-item-container">
@@ -84,16 +89,14 @@
                             </div>
                          </c:forEach>
                      </div>
-                     <form action="/delete-playlist" method="POST">
-                         <input type="hidden" name="id" value="${playlist.id}">
-                         <button type="submit">Excluir Playlist</button>
-                     </form>
 
-                     <form action="/update-playlist-name" method="POST">
-                         <input type="hidden" name="playlistId" value="${playlist.id}">
-                         <input type="text" name="newName" placeholder="Novo nome da playlist">
-                         <button type="submit">Atualizar Nome da Playlist</button>
-                     </form>
+                     <div class="update-div">
+                         <form action="/update-playlist-name" method="POST">
+                             <input type="hidden" name="playlistId" value="${playlist.id}">
+                             <input type="text" name="newName" placeholder="Novo nome da playlist">
+                             <button type="submit">Atualizar</button>
+                         </form>
+                     </div>
 
                </div>
              </c:forEach>

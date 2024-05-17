@@ -151,6 +151,12 @@ hr {
     color: #9D4CB1;
 }
 
+.playlist-nome-div {
+    display: flex;
+    gap: 60%;
+    align-items: center;
+}
+
 .musica-item-container {
     display: flex;
     flex-direction: column;
@@ -209,4 +215,42 @@ hr {
 
 #logout {
     color: gray;
+}
+
+.delete-button {
+    background: url('../assets/delete.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+form{
+    gap: 12px;
+}
+.update-div {
+    margin-top: 12px;
+}
+
+.update-div button{
+    padding: 6px;
+    padding-left: 12px;
+    border-height: 1px;
+    background-color: #B518BB;
+    color: white;
+    font-weight: 500;
+    border-radius: 6px;
+    border-width: 1px;
+}
+
+.update-div input {
+    height: 30px;
+    width: 10vw;
+    padding-left: 12px;
+    padding-right: 30px;
+    border-radius: 6px;
+    border-width: 1px;
 }
