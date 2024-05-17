@@ -73,6 +73,7 @@
                 <td>${musica.nome}</td>
                 <td>${musica.artista}</td>
                 <td>${musica.duracao}</td>
+                 <td>${musica.qtdPLaylists} playlists</td>
               </tr>
               </c:forEach>
         </table>

@@ -25,7 +25,7 @@
             <div class="nav-icons">
                 <img src="assets/home.png" alt=""> <a href="/home">Inicio</a>
 
-                <img src="assets/comunidade.png" alt=""> <a href="/comunidade">Comunidade</a>
+                <img src="assets/comunidade.png" alt=""> <a href="/community">Comunidade</a>
                 <img src="assets/profile.png" alt=""> <a href="/profile">Meu Perfil</a>
 
             </div>

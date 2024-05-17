@@ -200,7 +200,8 @@ public class PlaylistDAO  {
                 "FROM Musica " +
                 "JOIN PlaylistMusica ON Musica.id = PlaylistMusica.musicaId " +
                 "GROUP BY Musica.id " +
-                "ORDER BY playlist_count DESC";
+                "ORDER BY playlist_count DESC " +
+                "LIMIT 10";
 
         List<Musica> musicas = new ArrayList<>();
 
@@ -214,6 +215,7 @@ public class PlaylistDAO  {
                 musica.setId(resultSet.getInt("ID"));
                 musica.setNome(resultSet.getString("NOME"));
                 musica.setArtista(resultSet.getString("ARTISTA"));
+                musica.setQtdPLaylists(resultSet.getInt("playlist_count"));
                 musicas.add(musica);
             }
 
