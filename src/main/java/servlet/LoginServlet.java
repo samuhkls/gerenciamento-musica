@@ -7,10 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-
+import java.sql.SQLException;
 
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet{
+public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,24 +23,32 @@ public class LoginServlet extends HttpServlet{
         String email = request.getParameter("email-login");
         String password = request.getParameter("password-login");
 
-        User user = new User(username, email, password);
-        UserDAO dao = new UserDAO();
-        // pegando id do user (com base no username) do banco
-        user.setId(dao.findUserId(user.getUsername()));
-        boolean isValidUser = new UserDAO().verifyCredentials(user);
-
-
-        if (isValidUser) {
-            request.getSession().setAttribute("loggedUser", user);
-            resp.sendRedirect("home");
-        } else {
-            request.setAttribute("message", "Invalid credentials!");
+        if (username == null || email == null || password == null ||
+                username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            request.setAttribute("message", "All fields are required!");
             request.getRequestDispatcher("login.jsp").forward(request, resp);
+            return;
         }
 
+        User user = new User(username, email, password);
+        UserDAO dao = new UserDAO();
+
+        try {
+            // pegando id do user (com base no username) do banco
+            user.setId(dao.findUserId(user.getUsername()));
+            boolean isValidUser = dao.verifyCredentials(user);
+
+            if (isValidUser) {
+                request.getSession().setAttribute("loggedUser", user);
+                resp.sendRedirect("home");
+            } else {
+                request.setAttribute("message", "Credenciais invalidas!");
+                request.getRequestDispatcher("login.jsp").forward(request, resp);
+            }
+            } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("message", "O login digitado nao existe, tente novamente.");
+            request.getRequestDispatcher("login.jsp").forward(request, resp);
+        }
     }
-
-
-
-
 }

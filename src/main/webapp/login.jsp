@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Listener | Log-in</title>
-	<link rel="stylesheet" type="text/css" href="css/login.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/login.css?v=7.0">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="main">  	
@@ -13,7 +13,7 @@
 				<form action="/register" method="post">
 					<label for="chk" aria-hidden="true">Listener</label>
 
-                    <span>${requestScope.message}</span>
+                    <span class="erro-login">${requestScope.message}</span>
 
 					<input type="text" name="user-register" placeholder="Usuario" required="">
 					<input type="email" name="email-register" placeholder="Seu E-mail" required="">
@@ -24,10 +24,6 @@
 
 			<div class="login">
 				<form action="/login" method = "post">
-
-
-                   <span>${requestScope.message}</span>
-
 					<label for="chk" aria-hidden="true">Log-in</label>
 					<input type="text" name="user-login" placeholder="Usuario" required="">
 					<input type="email" name="email-login" placeholder="Seu E-mail" required="">
