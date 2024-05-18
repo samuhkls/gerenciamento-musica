@@ -103,3 +103,9 @@ background: #1aadb8;
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+
+.erro-login {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
