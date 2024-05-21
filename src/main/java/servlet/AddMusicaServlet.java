@@ -29,7 +29,8 @@ public class AddMusicaServlet extends HttpServlet {
         PlaylistDAO dao = new PlaylistDAO();
         Playlist play = dao.getPlaylistByName(playlistName, loggedUser);
 
-        dao.addMusicaToPlaylist(play, musica);
+        String message = dao.addMusicaToPlaylist(play, musica);
+        request.setAttribute("message", message);
 
         response.sendRedirect("/lista-musicas");
     }

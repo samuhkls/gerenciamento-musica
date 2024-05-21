@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/pesquisa.css?v=3.0">
+    <link rel="stylesheet" href="css/pesquisa.css?v=4.0">
 </head>
 
 <body>
@@ -46,7 +46,11 @@
                     </div>
                 </div>
          </div>
-
+        <div class="message-musicas">
+        <% if (request.getAttribute("message") != null) { %>
+            <p><%= request.getAttribute("message") %></p>
+        <% } %>
+        </div>
           <div class="page-content">
                   <div class="create-container">
                      <h1 id="title-pesquisa">Criar uma playlist</h1>
@@ -67,6 +71,7 @@
              </hr>
 
           <div class="faixas-container">
+
               <form action="/lista-musicas" method="GET">
                 <c:forEach var="musica" items="${musicas}">
                    <div class="musica-item-container">
