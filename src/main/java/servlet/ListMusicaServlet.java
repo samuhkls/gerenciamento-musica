@@ -31,6 +31,9 @@ public class ListMusicaServlet extends HttpServlet {
         List<Playlist> playlists = new PlaylistDAO().getPlaylistsByUser(loggedUser);
         request.setAttribute("playlists", playlists);
 
+        String message = (String) request.getSession().getAttribute("message");
+        request.setAttribute("message", message);
+        request.getSession().removeAttribute("message"); // removendo a mensagem para ela nao persistir
 
         request.getRequestDispatcher("pesquisa.jsp").forward(request, response);
 

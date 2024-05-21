@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/pesquisa.css?v=4.0">
+    <link rel="stylesheet" href="css/pesquisa.css?v=6.0">
 </head>
 
 <body>
@@ -47,9 +47,7 @@
                 </div>
          </div>
         <div class="message-musicas">
-        <% if (request.getAttribute("message") != null) { %>
-            <p><%= request.getAttribute("message") %></p>
-        <% } %>
+                <p>${message}</p>
         </div>
           <div class="page-content">
                   <div class="create-container">

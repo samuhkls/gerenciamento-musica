@@ -20,7 +20,7 @@ public class CreatePlaylistServlet extends HttpServlet {
 
         Playlist playlist = new Playlist();
         playlist.setNomePLaylist(playlistName);
-        playlist.setAutor(loggedUser.getUsername());
+        playlist.setAutor(loggedUser.getUsername()); // o autor da playlist sempre vai ser o usuario logado no momento
 
         PlaylistDAO dao = new PlaylistDAO();
         dao.createPlaylist(playlist, loggedUser);
