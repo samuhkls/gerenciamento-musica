@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 
         if (username == null || email == null || password == null ||
                 username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            request.setAttribute("message", "All fields are required!");
+            request.setAttribute("message", "Todos os campos sao obrigatorios!");
             request.getRequestDispatcher("login.jsp").forward(request, resp);
             return;
         }

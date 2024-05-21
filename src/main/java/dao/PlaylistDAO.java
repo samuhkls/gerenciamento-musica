@@ -90,9 +90,27 @@ public class PlaylistDAO  {
         return playlists;
     }
 
-    public void addMusicaToPlaylist(Playlist playlist, Musica musica) {
+    public String addMusicaToPlaylist(Playlist playlist, Musica musica) {
         initializeDatabase();
         String SQL = "INSERT INTO PlaylistMusica (playlistId, musicaId) VALUES (?, ?)";
+        String checkSQL = "SELECT COUNT(*) FROM PlaylistMusica WHERE playlistId = ? AND musicaId = ?";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement checkStatement = connection.prepareStatement(checkSQL)) {
+
+            checkStatement.setInt(1, playlist.getId());
+            checkStatement.setInt(2, musica.getId());
+
+            ResultSet resultSet = checkStatement.executeQuery();
+            resultSet.next();
+
+            if (resultSet.getInt(1) > 0) {
+                // musica already exists in playlist, so return without adding
+                return "Musica ja existe na playlist!";
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         try (Connection connection = ConnectionPoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
@@ -107,6 +125,7 @@ public class PlaylistDAO  {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return "Musica adicionada a playlist!";
     }
 
     public List<Musica> getMusicasInPlaylist(Playlist playlist) {
