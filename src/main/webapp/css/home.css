@@ -44,19 +44,22 @@ form{
     width 100%
 }
 
-.nav-icons a {
+.nav-icons a{
     color: black;
     text-decoration: none;
 }
 
-.nav-search-box {
+.nav-search-box{
     display: flex;
+    width: 30%;
+    display: flex;
+    margin-left: 5%;
+    justify-content: space-around;
     align-items: center;
-    padding-left: 30%;
 }
 
-.nav-search-box input {
-    height: 30px;
+.nav-search-box input{
+    height: 26px;
     width: 10vw;
     padding-left: 12px;
     padding-right: 30px;
@@ -76,7 +79,7 @@ form{
     cursor: pointer;
     padding: 0;
 }
-.nav-search-box a {
+.nav-search-box a{
     text-decoration: none;
 }
 
