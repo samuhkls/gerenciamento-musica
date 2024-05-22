@@ -67,17 +67,18 @@ form{
     border-width: 1px;
 }
 
-.nav-search-box button{
-    width: 100%;
+.nav-search-box button {
+    height: 30px;
+    width: 30px;
     border-width: 1px;
-    border-radius: 1px;
-    background-image: url('../assets/search.png');
-    background-size: contain;
+    border-radius: 6px;
+    background-image: url(../assets/search.png);
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
-    padding-left: 1px;
+    padding: 0;
 }
-
 .nav-search-box a{
     text-decoration: none;
 }
