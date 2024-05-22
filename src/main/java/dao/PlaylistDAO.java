@@ -105,7 +105,6 @@ public class PlaylistDAO  {
             resultSet.next();
 
             if (resultSet.getInt(1) > 0) {
-                // musica already exists in playlist, so return without adding
                 return "Musica ja existe na playlist!";
             }
         } catch (SQLException e) {

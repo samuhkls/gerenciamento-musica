@@ -10,7 +10,7 @@ public class Playlist {
     private List<Musica> musicas;
     private int id;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
