@@ -17,6 +17,12 @@ import java.io.IOException;
 public class CurtirPlaylistServlet extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // remove a mensagem de sucesso ou erro dps do post
+        request.getSession().removeAttribute("message");
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
 
@@ -32,12 +38,9 @@ public class CurtirPlaylistServlet extends HttpServlet {
             } else {
                 request.getSession().setAttribute("message", "Você não pode curtir sua própria playlist!");
             }
-            request.getSession().removeAttribute("message"); // removendo a mensagem para ela nao persistir
         } else {
             request.getSession().setAttribute("message", "Playlist nao encontrada!");
-            request.getSession().removeAttribute("message"); // removendo a mensagem para ela nao persistir
         }
-
 
         response.sendRedirect(request.getContextPath() + "/community");
     }

@@ -192,8 +192,14 @@ form input {
 .create-container{
     margin-bottom: 30px;
 }
+
 .message-musicas{
     display: flex;
     justify-content: center;
-    color: red;
+    color: #9D4CB1;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #9D4CB1;
+    border-radius: 5px;
 }
