@@ -9,17 +9,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlaylistDAO  {
+public class PlaylistDAO {
 
     String connect = "CREATE TABLE IF NOT EXISTS PLAYLIST(ID SERIAL PRIMARY KEY, NOME VARCHAR(255), AUTOR VARCHAR(255), USERID INT, FOREIGN KEY (userId) REFERENCES USR(ID))";
     String SQL = "INSERT INTO PLAYLIST (NOME, AUTOR, USERID) VALUES (?, ?, ?)";
 
 
+    public void createPlaylist(Playlist playlist, User user) {
 
-
-    public void createPlaylist(Playlist playlist, User user){
-
-        try{
+        try {
             Connection connection = ConnectionPoolConfig.getConnection();
 
 
@@ -34,8 +32,8 @@ public class PlaylistDAO  {
         }
 
         try (
-        Connection connection = ConnectionPoolConfig.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
+                Connection connection = ConnectionPoolConfig.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) {
 
             preparedStatement.setString(1, playlist.getNomePLaylist());
             preparedStatement.setString(2, playlist.getAutor());
@@ -256,7 +254,7 @@ public class PlaylistDAO  {
                 playlist.setNomePLaylist(resultSet.getString("NOME"));
                 playlist.setAutor(resultSet.getString("AUTOR"));
                 int qtd = getQuantidadeInPlaylist(playlist);
-                List<Musica> musicas = getMusicasInPlaylist(playlist);
+                List<Musica> musicas = getMusicasInPlaylist(playlist); // necessario para mostrar as musicas no front
                 playlist.setMusicas(musicas);
                 playlist.setQuantidade(qtd);
                 playlists.add(playlist);
@@ -282,6 +280,23 @@ public class PlaylistDAO  {
              Statement statement = connection.createStatement()) {
 
             statement.execute(SQL);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        String SQLCURTIDAS = "CREATE TABLE IF NOT EXISTS PlaylistLikes ("
+                + "playlistId INT, "
+                + "userId INT, "
+                + "PRIMARY KEY (playlistId, userId), "
+                + "FOREIGN KEY (playlistId) REFERENCES Playlist(id), "
+                + "FOREIGN KEY (userId) REFERENCES USR(ID)"
+                + ")";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             Statement statement = connection.createStatement()) {
+
+            statement.execute(SQLCURTIDAS);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -346,7 +361,63 @@ public class PlaylistDAO  {
             ex.printStackTrace();
         }
     }
-}
 
+    public void curtirPlaylist(Playlist playlist, User user) {
+
+        String SQL = "INSERT INTO PlaylistLikes (playlistId, userId) VALUES (?, ?)";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            // setando ids da playlist a ser curtida, e o usuario que curtiu
+            preparedStatement.setInt(1, playlist.getId());
+            preparedStatement.setInt(2, user.getId());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public List<Playlist> getMaisCurtidas() {
+        initializeDatabase();
+
+        String SQL = "SELECT Playlist.*, COUNT(*) as likes_count "
+                + "FROM Playlist "
+                + "JOIN PlaylistLikes ON Playlist.id = PlaylistLikes.playlistId "
+                + "GROUP BY Playlist.id "
+                + "ORDER BY likes_count DESC "
+                + "LIMIT 10";
+
+        List<Playlist> playlists = new ArrayList<>();
+
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Playlist playlist = new Playlist();
+                playlist.setId(resultSet.getInt("ID"));
+                playlist.setNomePLaylist(resultSet.getString("NOME"));
+                playlist.setAutor(resultSet.getString("AUTOR"));
+                int qtdcurtidas = resultSet.getInt("likes_count");
+                playlist.setQtdCurtidas(qtdcurtidas);
+                int qtd = getQuantidadeInPlaylist(playlist);
+                List<Musica> musicas = getMusicasInPlaylist(playlist); // necessario para mostrar as musicas no front
+                playlist.setMusicas(musicas);
+                playlist.setQuantidade(qtd);
+                playlists.add(playlist);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return playlists;
+    }
+}
 
 

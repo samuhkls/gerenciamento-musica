@@ -26,6 +26,9 @@ public class ComunidadeServlet extends HttpServlet {
         List<Playlist> allPlaylists = new PlaylistDAO().getAllPlaylists();
         request.setAttribute("allPlaylists", allPlaylists);
 
+        List<Playlist> popularPlaylists = new PlaylistDAO().getMaisCurtidas();
+        request.setAttribute("popularPlaylists", popularPlaylists);
+
         request.getRequestDispatcher("comunidade.jsp").forward(request, response);
     }
 }
