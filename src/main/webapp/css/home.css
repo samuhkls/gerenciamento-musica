@@ -237,6 +237,12 @@ hr{
     align-items: center;
 }
 
+.erro-login {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
 .musica-item-container{
     width: 90%;
     display: flex;

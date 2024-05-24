@@ -17,6 +17,7 @@ public class DeletePlaylistServlet extends HttpServlet {
         this.playlistService = new DeletePlaylist();
     }
 
+    //funcao que deleta playlist
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String playlistId = req.getParameter("id");

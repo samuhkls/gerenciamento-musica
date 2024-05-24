@@ -28,6 +28,7 @@
 
             <div class="nav-search-box">
                 <form action="/create-musica" method="POST">
+                    <span class="erro-login">${requestScope.message}</span>
                     <input type="text" name="musica" placeholder="Pesquise sua musica: " >
                     <button type="submit" value="Submit">
                 </form>
