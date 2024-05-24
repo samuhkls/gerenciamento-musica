@@ -48,18 +48,26 @@ body {
 form {
     display: flex;
     justify-content: space-between;
-    margin-left: 80px;
+    margin-left: 60px;
 }
 
-form button{
+#botao-create{
+    display: flex;
+    gap: 3px;
     padding: 6px;
     padding-left: 12px;
     border-height: 1px;
-    background-color: #440649;
-    color: white;
+    background-color: #AFAFAF;
+    color: black;
     font-weight: 500;
     border-radius: 6px;
     border-width: 1px;
+    cursor: pointer
+}
+
+#heart-button{
+    height: 15px;
+    width: 15px;
 }
 
 .nav-icons a {
