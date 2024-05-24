@@ -335,8 +335,9 @@ public class PlaylistDAO {
 
             if (rs.next()) {
                 playlist = new Playlist();
-                playlist.setId(rs.getInt("id"));
-                playlist.setNomePLaylist(rs.getString("nomePlaylist"));
+                playlist.setId(rs.getInt("ID"));
+                playlist.setNomePLaylist(rs.getString("NOME"));
+                playlist.setAutor(rs.getString("AUTOR"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -364,7 +365,7 @@ public class PlaylistDAO {
 
     public void curtirPlaylist(Playlist playlist, User user) {
 
-        String SQL = "INSERT INTO PlaylistLikes (playlistId, userId) VALUES (?, ?)";
+        String SQL = "SELECT * FROM PlaylistLikes WHERE playlistId = ? AND userId = ?";
 
         try (Connection connection = ConnectionPoolConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
@@ -373,7 +374,22 @@ public class PlaylistDAO {
             preparedStatement.setInt(1, playlist.getId());
             preparedStatement.setInt(2, user.getId());
 
-            preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // check se o usuario ja curtiu a playlist, se ja tiver curtido, a curtida é removida
+            if (resultSet.next()) {
+                SQL = "DELETE FROM PlaylistLikes WHERE playlistId = ? AND userId = ?";
+            } else {
+                SQL = "INSERT INTO PlaylistLikes (playlistId, userId) VALUES (?, ?)";
+            }
+
+            try (PreparedStatement updateStatement = connection.prepareStatement(SQL)) {
+                updateStatement.setInt(1, playlist.getId());
+                updateStatement.setInt(2, user.getId());
+
+                updateStatement.executeUpdate();
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

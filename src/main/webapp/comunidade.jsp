@@ -49,6 +49,9 @@
                     </div>
                 </div>
          </div>
+         <div class="message-musicas">
+            <p>${message}</p>
+         </div>
 
     <div class="page-content">
         <div class="popular-songs-container">
