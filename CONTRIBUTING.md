@@ -23,3 +23,4 @@ Quando você criar um commit, pedimos gentilmente que siga a convenção categor
 
 # Solicitações de nova funcionalidade/correção de bug
 Se você tiver uma solicitação para uma nova funcionalidade, por favor, abra uma discussão no GitHub. Ficaremos felizes em ajudá-lo!
+
