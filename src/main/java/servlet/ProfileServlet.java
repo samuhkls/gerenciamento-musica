@@ -40,7 +40,7 @@ public class ProfileServlet extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
-            response.sendRedirect("/home");
+            response.sendRedirect("/login");
         }
     }
 }

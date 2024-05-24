@@ -20,6 +20,12 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
+        if (loggedUser == null) {
+
+            request.getRequestDispatcher("/login").forward(request, resp);
+            return;
+        }
+
         TrendingGetter getter = new TrendingGetter();
         List<Musica> trendingMusicas = getter.getTrending();
         request.setAttribute("musicas", trendingMusicas);

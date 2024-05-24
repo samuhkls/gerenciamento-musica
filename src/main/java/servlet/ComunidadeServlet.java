@@ -20,6 +20,13 @@ public class ComunidadeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
 
+        // Checando se o user não esta logado
+        if (loggedUser == null) {
+
+            request.getRequestDispatcher("/login").forward(request, response);
+            return;
+        }
+
         List<Musica> popularMusicas = new PlaylistDAO().getMostPopularMusicas();
         request.setAttribute("popularMusicas", popularMusicas);
 
