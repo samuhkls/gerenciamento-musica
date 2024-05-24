@@ -9,6 +9,15 @@ public class Playlist {
     private String autor;
     private List<Musica> musicas;
     private int id;
+    private int qtdCurtidas;
+
+    public int getQtdCurtidas() {
+        return qtdCurtidas;
+    }
+
+    public void setQtdCurtidas(int qtdCurtidas) {
+        this.qtdCurtidas = qtdCurtidas;
+    }
 
     public Integer getId() {
         return id;

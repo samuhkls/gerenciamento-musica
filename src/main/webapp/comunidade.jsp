@@ -72,6 +72,29 @@
         </div>
 
         <div class="all-playlists-container">
+             <div class="pl-title">
+                <h2 id="comunidade-playlist-title">As playlists mais curtidas</h2>
+             </div>
+             <div  class="pl-wrap">
+                <c:forEach var="playlist" items="${popularPlaylists}">
+                <div class="playlist">
+                    <div class="playlist-item">
+                        <h3 id="titulo-playlist">${playlist.nomePLaylist}</h3>
+                        <div class="separa-autor-musica">
+                            <span id="autor-playlist">${playlist.autor}</span> <span id="playlist-quantidade">${playlist.quantidade} - musicas</span> <span id="playlist-quantidade">${playlist.qtdCurtidas} - curtidas</span>
+                        </div>
+                        <hr>
+                        <c:forEach var="musica" items="${playlist.musicas}">
+                        <p id="musica-nome-playlist">${musica.nome}</p>
+                        <p id="musica-artista-playlist">${musica.artista}</p>
+                        </c:forEach>
+                    </div>
+                </div>
+                </c:forEach>
+            </div>
+        </div>
+
+        <div class="all-playlists-container">
             <div class="pl-title">
             <h2 id="comunidade-playlist-title">Explore todas as Playlists</h2>
             </div>
@@ -82,6 +105,12 @@
                             <h3 id="titulo-playlist">${playlist.nomePLaylist}</h3>
                             <div class="separa-autor-musica">
                             <span id="autor-playlist">${playlist.autor}</span> <span id="playlist-quantidade">${playlist.quantidade} - musicas</span>
+
+                            <form action="/curtir-playlist" method="POST">
+                                <input type="hidden" name="playlistid" value="${playlist.id}">
+                                <button id="botao-create" type="submit">Curtir</button>
+                            </form>
+
                             </div>
                             <hr>
                             <c:forEach var="musica" items="${playlist.musicas}">
