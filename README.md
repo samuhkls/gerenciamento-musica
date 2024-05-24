@@ -1,6 +1,20 @@
-# gerenciamento-musica
+# Listener
 
-https://www.figma.com/file/CjOsefITUZ2zUFMyAuUwK5/Untitled?type=design&node-id=0-1&mode=design
+`[Ainda em desenvolvimento]`
+Listener é um projeto open-source. Explore o nosso mundo, aventure-se. Gerencie suas músicas, participe da nossa comunidade, crie suas playlists, pesquise suas musicas, entre na nossa vibe!.
 
-![Anotação 2024-03-08 193804](https://github.com/samuhkls/gerenciamento-musica/assets/82848382/c812358a-5340-4e8f-8175-813224ee0273)
+# Tecnologias Usadas
+
+- API: [LastFM API](https://www.last.fm/api)
+- Linguagem: [Java](https://docs.oracle.com/en/java/)
+- Banco de dados: [H2](https://www.h2database.com/html/main.html)
+- Estilização: [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- Framework: Nenhum.
+- Bibliotecas: [Servlet](https://docs.oracle.com/javaee%2F7%2Fapi%2F%2F/javax/servlet/Servlet.html) 
+
+# Contribuição
+Se você está interessado em contribuir para o nosso projeto, sinta-se livre para ler nosso [guia de contribuição](https://github.com/samuhkls/gerenciamento-musica/blob/main/CONTRIBUTING.MD).
+
+
+## Diagrama UML da nossa Aplicação
 ![Diagrama ER](https://github.com/samuhkls/gerenciamento-musica/assets/82848382/d38b1e47-b294-4fbd-84b0-886e77142928)
