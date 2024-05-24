@@ -28,15 +28,20 @@ public class CreateMusicaServlet extends HttpServlet{
 
             String musicanome = request.getParameter("musica");
 
-            Musica musica = search.pesquisar(musicanome);
+            try {
+                if(musicanome == null || musicanome.trim().isEmpty()){
+                    request.setAttribute("message", "Não foi possivel pesquisar a musica, porque nenhuma musica foi digitada.");
+                    response.sendRedirect("home");
+                }
 
-
-            new musicaDAO().createMusica(musica);
-
-            response.sendRedirect("/lista-musicas");
-
+                Musica musica = search.pesquisar(musicanome);
+                new musicaDAO().createMusica(musica);
+                response.sendRedirect("/lista-musicas");
+            } catch (IllegalArgumentException e){
+                e.printStackTrace();
+                request.setAttribute("message", "Não foi possivel pesquisar a musica, porque nenhuma musica foi digitada.");
+                response.sendRedirect("home");
+            }
         }
-
-
     }
 

@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 
             if (isValidUser) {
                 request.getSession().setAttribute("loggedUser", user);
-                resp.sendRedirect("home");
+                resp.sendRedirect("/home");
             } else {
                 request.setAttribute("message", "Credenciais invalidas!");
                 request.getRequestDispatcher("login.jsp").forward(request, resp);
