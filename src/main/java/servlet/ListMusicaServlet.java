@@ -19,7 +19,7 @@ public class ListMusicaServlet extends HttpServlet {
     Playlist play = new Playlist();
 
 
-
+    //funcao que chama todas as musicas
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
@@ -39,6 +39,7 @@ public class ListMusicaServlet extends HttpServlet {
 
         }
 
+    //adiciona musica pesquisada na lista musica
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String musicanome = request.getParameter("item-nome");

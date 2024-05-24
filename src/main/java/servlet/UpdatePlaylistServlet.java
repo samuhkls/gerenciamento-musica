@@ -19,6 +19,7 @@ public class UpdatePlaylistServlet extends HttpServlet {
         this.playlistDAO = new PlaylistDAO();
     }
 
+    //funcao atualiza nome da playlist
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int playlistId = Integer.parseInt(request.getParameter("playlistId"));
         String newName = request.getParameter("newName");

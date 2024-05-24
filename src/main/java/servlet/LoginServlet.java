@@ -12,11 +12,13 @@ import java.sql.SQLException;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
+    //funcao responsavel pelo direcionamento
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         request.getRequestDispatcher("login.jsp").forward(request, resp);
     }
 
+    //funcao responsavel pelo login
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         String username = request.getParameter("user-login");
