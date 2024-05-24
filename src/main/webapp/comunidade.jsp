@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/comunidade.css?v=8.0">
+    <link rel="stylesheet" href="css/comunidade.css?v=9.0">
 </head>
 
 <body>
@@ -106,9 +106,9 @@
                             <div class="separa-autor-musica">
                             <span id="autor-playlist">${playlist.autor}</span> <span id="playlist-quantidade">${playlist.quantidade} - musicas</span>
 
-                            <form action="/curtir-playlist" method="POST">
+                            <form id="botao-create-id" action="/curtir-playlist" method="POST">
                                 <input type="hidden" name="playlistid" value="${playlist.id}">
-                                <button id="botao-create" type="submit">Curtir</button>
+                                <button id="botao-create" type="submit"><img id="heart-button" src="assets/heart.png">Curtir</button>
                             </form>
 
                             </div>
