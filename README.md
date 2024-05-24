@@ -1,7 +1,9 @@
+![Listener](https://i.imgur.com/5f8qp3m.png)
 # Listener
 
 `[Ainda em desenvolvimento]`
-Listener é um projeto open-source. Explore o nosso mundo, aventure-se. Gerencie suas músicas, participe da nossa comunidade, crie suas playlists, pesquise suas musicas, entre na nossa vibe!.
+
+Listener é um projeto open-source. Explore o nosso mundo, aventure-se. Gerencie suas músicas, participe da nossa comunidade, crie suas playlists, pesquise suas musicas, entre na nossa vibe.
 
 # Tecnologias Usadas
 
