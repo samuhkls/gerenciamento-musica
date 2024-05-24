@@ -86,7 +86,26 @@ public class UserDAO {
 
 
     }
+    public boolean isEmailRegistered(String email) {
+        String SQL = "SELECT COUNT(1) FROM USR WHERE EMAIL = ?";
 
+        try (Connection connection = ConnectionPoolConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL)) {
+
+            preparedStatement.setString(1, email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                return count > 0; // e-mail existe se for maior que zero
+            } else {
+                throw new RuntimeException("Error checking email existence");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public int findUserId(String nome){
         String SQL = "SELECT ID FROM USR WHERE USERNAME = ?";
 

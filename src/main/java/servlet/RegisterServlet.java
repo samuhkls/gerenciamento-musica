@@ -24,12 +24,30 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password-register");
 
 
+
         User user = new User(username, email, password);
-        request.getSession().setAttribute("loggedUser", user);
+        UserDAO dao = new UserDAO();
 
-        new UserDAO().createUser(user);
+        try {
+            // Checar se o email existe
+            boolean isEmailRegistered = dao.isEmailRegistered(email);
+            if (isEmailRegistered) {
+                request.setAttribute("message", "E-mail já está registrado. Escolha outro e-mail.");
+                request.getRequestDispatcher("login.jsp").forward(request, resp);
+                return;
+            }
 
-        resp.sendRedirect("/home");
-    }
+            // pega o ID da DB
+            user.setId(dao.findUserId(user.getUsername()));
 
-}
+            // Inserir no banco novo usuario
+            request.getSession().setAttribute("loggedUser", user);
+            new UserDAO().createUser(user);
+
+            resp.sendRedirect("/home");
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("message", "Erro ao verificar o e-mail. Tente novamente.");
+            request.getRequestDispatcher("login.jsp").forward(request, resp);
+        }
+}}
