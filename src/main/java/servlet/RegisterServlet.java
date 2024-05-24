@@ -26,7 +26,6 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password-register");
 
 
-
         User user = new User(username, email, password);
         UserDAO dao = new UserDAO();
 
@@ -39,8 +38,6 @@ public class RegisterServlet extends HttpServlet {
                 return;
             }
 
-            // pega o ID da DB
-            user.setId(dao.findUserId(user.getUsername()));
 
             // Inserir no banco novo usuario
             request.getSession().setAttribute("loggedUser", user);

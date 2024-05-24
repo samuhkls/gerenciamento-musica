@@ -20,15 +20,22 @@ public class CurtirPlaylistServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
 
-        int playlistid = Integer.parseInt(request.getParameter("playlistid"));
+        String id = request.getParameter("playlistid");
+        int playlistid = Integer.parseInt(id);
         PlaylistDAO dao = new PlaylistDAO();
         Playlist playlist = dao.findById(playlistid);
 
         if(playlist != null){
-            dao.curtirPlaylist(playlist, loggedUser);
-            request.getSession().setAttribute("message", "Playlist curtida com sucesso!");
+            if (playlist.getAutor() != null && !playlist.getAutor().equals(loggedUser.getUsername())) { // verificando se o autor da playlist é o usuario logado
+                dao.curtirPlaylist(playlist, loggedUser);
+                request.getSession().setAttribute("message", "Playlist curtida com sucesso!");
+            } else {
+                request.getSession().setAttribute("message", "Você não pode curtir sua própria playlist!");
+            }
+            request.getSession().removeAttribute("message"); // removendo a mensagem para ela nao persistir
         } else {
             request.getSession().setAttribute("message", "Playlist nao encontrada!");
+            request.getSession().removeAttribute("message"); // removendo a mensagem para ela nao persistir
         }
 
 
