@@ -221,10 +221,6 @@ hr {
     font-weight: 300;
 }
 
-#qtd-table{
-
-}
-
 .separa-autor-musica{
     display: flex;
     gap: 5%;
@@ -235,7 +231,11 @@ hr {
     flex-wrap: wrap;
 }
 
-
-
-
-
+.message-musicas{
+    display: flex;
+    justify-content: center;
+    color: #9D4CB1;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}

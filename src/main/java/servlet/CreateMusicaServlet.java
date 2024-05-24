@@ -27,21 +27,24 @@ public class CreateMusicaServlet extends HttpServlet{
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
             String musicanome = request.getParameter("musica");
+            String redirectUrl = "/home";
+            String message = "Não foi possivel pesquisar a musica, porque nenhuma musica foi digitada.";
 
             try {
-                if(musicanome == null || musicanome.trim().isEmpty()){
-                    request.setAttribute("message", "Não foi possivel pesquisar a musica, porque nenhuma musica foi digitada.");
-                    response.sendRedirect("home");
+                if(musicanome != null && !musicanome.trim().isEmpty()){
+                    Musica musica = search.pesquisar(musicanome);
+                    new musicaDAO().createMusica(musica);
+                    redirectUrl = "/lista-musicas";
+                    message = null;
                 }
-
-                Musica musica = search.pesquisar(musicanome);
-                new musicaDAO().createMusica(musica);
-                response.sendRedirect("/lista-musicas");
-            } catch (IllegalArgumentException e){
+            } catch (Exception e){
                 e.printStackTrace();
-                request.setAttribute("message", "Não foi possivel pesquisar a musica, porque nenhuma musica foi digitada.");
-                response.sendRedirect("home");
             }
+
+            if (message != null) {
+                request.setAttribute("message", message);
+            }
+            response.sendRedirect(redirectUrl);
         }
     }
 

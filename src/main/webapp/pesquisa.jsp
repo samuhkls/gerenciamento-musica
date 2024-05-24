@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title >Listener</title>
-    <link rel="stylesheet" href="css/pesquisa.css?v=6.0">
+    <link rel="stylesheet" href="css/pesquisa.css?v=10.0">
 </head>
 
 <body>
@@ -46,9 +46,11 @@
                     </div>
                 </div>
          </div>
+
         <div class="message-musicas">
                 <p>${message}</p>
         </div>
+
           <div class="page-content">
                   <div class="create-container">
                      <h1 id="title-pesquisa">Criar uma playlist</h1>

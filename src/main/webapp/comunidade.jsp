@@ -49,11 +49,12 @@
                     </div>
                 </div>
          </div>
-         <div class="message-musicas">
-            <p>${message}</p>
-         </div>
 
     <div class="page-content">
+
+            <div class="message-musicas">
+                <p>${sessionScope.message}</p>
+            </div>
         <div class="popular-songs-container">
             <div class="pl-title">
                 <h2 id="comunidade-playlist-title">O que a galera mais anda escutando</h2>
@@ -128,3 +129,11 @@
 
     </div>
 </body>
+
+<script>
+window.onload = function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/curtir-playlist', true);
+    xhr.send();
+};
+</script>
