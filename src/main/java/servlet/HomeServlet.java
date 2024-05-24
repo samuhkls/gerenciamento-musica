@@ -17,6 +17,7 @@ import java.util.List;
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 
+    //responsavel por chamar as funcoes da nossa pagina home
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");

@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet("/add-musica")
 public class AddMusicaServlet extends HttpServlet {
 
-
+    //adiciona musica selecionada para uma playlist especifica
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");

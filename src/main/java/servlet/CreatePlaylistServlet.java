@@ -13,6 +13,8 @@ import java.io.IOException;
 
 @WebServlet("/create-playlist")
 public class CreatePlaylistServlet extends HttpServlet {
+
+    //funcao que cria playlist
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         User loggedUser = (User) request.getSession().getAttribute("loggedUser");
