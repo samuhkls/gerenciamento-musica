@@ -5,6 +5,8 @@
 
 Listener é um projeto open-source. Explore o nosso mundo, aventure-se. Gerencie suas músicas, participe da nossa comunidade, crie suas playlists, pesquise suas musicas, entre na nossa vibe.
 
+(PROFESSOR) INSERT NO BANCO: CREATE TABLE IF NOT EXISTS USR(ID INT PRIMARY KEY AUTO_INCREMENT, USERNAME VARCHAR(255), EMAIL VARCHAR(255), PASSWORD VARCHAR(255))
+
 # Tecnologias Usadas
 
 - API: [LastFM API](https://www.last.fm/api)
